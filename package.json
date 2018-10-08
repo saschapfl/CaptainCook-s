@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/saschapfl/CaptainCook-s/issues"
   },
-  "homepage": "https://github.com/saschapfl/CaptainCook-s#readme"
+  "homepage": "https://github.com/saschapfl/CaptainCook-s#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.2"
+  }
 }
