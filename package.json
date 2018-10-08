@@ -1,0 +1,19 @@
+{
+  "name": "captaincook",
+  "version": "1.0.0",
+  "description": "Captain Cook Rezeptbuch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saschapfl/CaptainCook-s.git"
+  },
+  "author": "saschapfl SvenZelinka ViktoriaSwidersky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saschapfl/CaptainCook-s/issues"
+  },
+  "homepage": "https://github.com/saschapfl/CaptainCook-s#readme"
+}
