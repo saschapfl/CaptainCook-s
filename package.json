@@ -4,7 +4,10 @@
   "description": "Captain Cook Rezeptbuch",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "node scripts/clean.js",
+    "build": "npm run clean && parcel build src/*.html --public-url . --detailed-report --experimental-scope-hoisting",
+    "watch": "npm run clean && parcel watch src/*.html --public-url . --detailed-report --experimental-scope-hoisting",
+    "start": "parcel src/index.html --open"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/saschapfl/CaptainCook-s#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.10.2"
+    "parcel-bundler": "^1.10.2",
+    "shelljs": "^0.8.2"
   }
 }
