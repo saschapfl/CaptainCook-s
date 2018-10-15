@@ -14,13 +14,54 @@ main {
 
 }
 
-.thumbnail {
-  height: 300px;
-  width: 1000px;
-
+header {
+    display: inline-block;
+    width: 100%;
 
 }
+
+#Toolbar {
+    width: 100%;
+}
+
+#Suche{
+    width: 80%;
+}
+
+#Toolbar > img {
+    height: 30px;
+    width: 30px;
+}
+
+#Filter {
+    width: 30px;
+    height: 30px;
+}
+
+#Neu{
+    width: 30px;
+    height: 30px;
+}
+
 #table{
     text-align: center;
-    margin: auto;
+    justify-content: center;
+    display: flex;
+}
+
+ul{
+    display: flex;
+}
+li{
+    display: inherit;
+}
+td {
+    margin: 2em;
+    padding: 2em;
+    height: 400px;
+    width: 200px;
+}
+
+.hidden {
+    display: none;
 }
