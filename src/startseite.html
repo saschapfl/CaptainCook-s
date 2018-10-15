@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>CaptainCook</title>
         <link rel="stylesheet" href="startseite.css" />
+        <link rel = "stylesheet" href = "rezeptliste.css" />
         <script src="script.js"></script>
     </head>
     <body>
@@ -13,7 +14,7 @@
                 <ul>
                     <li><input type = "search" placeholder="Suche..." id = "Suche"></li>
                     <li><img id = "Filter" src = "filterIcon.png"></li>
-                    <li><img id = "Neu" src = "addIcon.png" onclick = "addRecipe()"></li>
+                    <li><img id = "Neu" src = "addIcon.png" onclick = "switchtoaddRecipe()"></li>
                 </ul>
             </div>
             <!--
@@ -26,16 +27,16 @@
             <section class = "active" id ="Startseite">
                 <table id = "table">
                     <tr>
-                        <td><img src = "schnelle_Rezepte.jpg" width="300" height="240" /> Schnelle Rezepte </th>
-                        <td><img src = "vegetarische_Rezepte.jpg" width="300" height="240" />  Vegetarische Rezepte</th>
+                        <td><img src = "schnelle_Rezepte.jpg" width="300" height="240" onClick = "switchtolist(this)" /> Schnelle Rezepte </th>
+                        <td><img src = "vegetarische_Rezepte.jpg" width="300" height="240" onClick = "switchtolist(this)" />  Vegetarische Rezepte</th>
                     </tr>
                     <tr>
-                        <td><img src = "mediterrane_Rezepte.jpg" width="300" height="240" /> Mediterrane Rezepte</td>
-                        <td><img src = "Pizza_Pasta.jpg" width="300" height="240" /> Pizza & Pasta</td>
+                        <td><img src = "mediterrane_Rezepte.jpg" width="300" height="240" onClick = "switchtolist(this)" /> Mediterrane Rezepte</td>
+                        <td><img src = "Pizza_Pasta.jpg" width="300" height="240" onClick = "switchtolist(this)" /> Pizza & Pasta</td>
                     </tr>
                     <tr>
-                        <td><img src = "alle_Rezepte.jpg" width="300" height="240" /> Alle Rezepte</td>
-                        <td><img src= "scharfe_Rezepte.jpg" width="300" height="240" /> Scharfe Rezepte</td>
+                        <td><img src = "alle_Rezepte.jpg" width="300" height="240" onClick = "switchtolist(this)" /> Alle Rezepte</td>
+                        <td><img src= "scharfe_Rezepte.jpg" width="300" height="240" onClick = "switchtolist(this)" /> Scharfe Rezepte</td>
                     </tr>
                 </table>
             </section>
@@ -132,7 +133,7 @@
                    <div id = "X" name = "Rezeptname">
                       <p>Rezeptname</p>
                       <img src = "">        =Rezeptbild
-                      <img src = "deleteIcon.png">
+                      <img src = "deleteIcon.png" onClick = "deleteRecipe(this)">
                   </div>
               -->
             </section>
