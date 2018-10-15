@@ -8,6 +8,18 @@
     <body>
         <header>
             <h1> CaptainCook</h1>
+            <div id = "Toolbar">
+                <ul>
+                    <li><input type = "search" placeholder="Suche..." id = "Suche"></li>
+                    <li><img id = "Filter" src = "filterIcon.png"></li>
+                    <li><img id = "Neu" src = "addIcon.png"></li>
+                </ul>
+            </div>
+            <!--
+                 2. Überschrift, die die ausgewählte Kategorie anzeigt
+                 Wird in JavaScript abhängig von aktiver Seite erzeugt
+            -->
+            <h2></h2>
         </header>
         <main>
             <section id ="Startseite">
@@ -111,6 +123,21 @@
                      BeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielText
                  </div>
             </section>
+            <section id = "Rezeptliste">
+              <!-- In diese Section wird eine Auflistung von Rezepten
+                   mit zugehörigem Bild durch JavaScript erzeugt. Zudem
+                   wird das Löschen-Icon hinzugefügt.
+                   Das Schema hierfür wird sein:
+                   <div id = "X" name = "Rezeptname">
+                      <p>Rezeptname</p>
+                      <img src = "">        =Rezeptbild
+                      <img src = "deleteIcon.png">
+                  </div>
+              -->
+            </section>
         </main>
+        <footer>
+           <p> authors: Sascha Pflittner, Viktoria Swidersky, Sven Zelinka</p>
+        </footer>
     </body>
 </html>
