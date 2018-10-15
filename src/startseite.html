@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>CaptainCook</title>
-          <link rel="stylesheet" href="startseite.css" />
+        <link rel="stylesheet" href="startseite.css" />
+        <script src="script.js"></script>
     </head>
     <body>
         <header>
@@ -12,7 +13,7 @@
                 <ul>
                     <li><input type = "search" placeholder="Suche..." id = "Suche"></li>
                     <li><img id = "Filter" src = "filterIcon.png"></li>
-                    <li><img id = "Neu" src = "addIcon.png"></li>
+                    <li><img id = "Neu" src = "addIcon.png" onclick = "addRecipe()"></li>
                 </ul>
             </div>
             <!--
@@ -22,23 +23,23 @@
             <h2></h2>
         </header>
         <main>
-            <section id ="Startseite">
+            <section class = "active" id ="Startseite">
                 <table id = "table">
                     <tr>
-                        <td> <img src = "https://www.liebenswert-magazin.de/assets/styles/article_image/public/field/image/schnelle-rezepte-omelett.jpg?itok=nOvcbaQx" width="300" height="240" /> Schnelle Rezepte </th>
-                        <td><img src = "https://www.springlane.de/magazin/wp-content/uploads/2016/10/Pita-mit-Olivenpesto-und-frittierter-Zucchini_featured.jpg" width="300" height="240" />  Vegetarische Rezepte</th>
+                        <td><img src = "schnelle_Rezepte.jpg" width="300" height="240" /> Schnelle Rezepte </th>
+                        <td><img src = "vegetarische_Rezepte.jpg" width="300" height="240" />  Vegetarische Rezepte</th>
                     </tr>
                     <tr>
-                        <td><img src = "https://images.lecker.de/mediterrane-bowl-mit-quinoa-und-hummus-F9067502,id=f8ae80eb,b=lecker,w=300,h=225,cg=c.jpg" width="300" height="240" /> Mediterrane Rezepte</td>
-                        <td><img src = "https://images.lecker.de/,id=1c470a51,b=lecker,w=610,cg=c.jpg" width="300" height="240" /> Pizza & Pasta</td>
+                        <td><img src = "mediterrane_Rezepte.jpg" width="300" height="240" /> Mediterrane Rezepte</td>
+                        <td><img src = "Pizza_Pasta.jpg" width="300" height="240" /> Pizza & Pasta</td>
                     </tr>
                     <tr>
-                        <td><img src = "https://www.gratis-malvorlagen.de/wp-content/uploads/malvorlagen/Comics/13/Besteck-viel.gif" width="300" height="240" /> Alle Rezepte</td>
-                        <td><img src= "https://www.gutekueche.at/img/rezept/2253/300x199_chili-con-carne.jpg" width="300" height="240" /> Scharfe Rezepte</td>
+                        <td><img src = "alle_Rezepte.jpg" width="300" height="240" /> Alle Rezepte</td>
+                        <td><img src= "scharfe_Rezepte.jpg" width="300" height="240" /> Scharfe Rezepte</td>
                     </tr>
                 </table>
             </section>
-            <section id = "Rezept_hinzufuegen">
+            <section class = "hidden" id = "Rezept_hinzufuegen">
                 <div>
                     <table>
                         <tr>
@@ -108,7 +109,7 @@
                     </table>
                 </div>
             </section>
-            <section id = "Rezept_anzeigen">
+            <section class = "hidden" id = "Rezept_anzeigen">
                 <table>
                     <th>
                         <img src="Bild passend zu Rezept!">
@@ -123,7 +124,7 @@
                      BeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielText
                  </div>
             </section>
-            <section id = "Rezeptliste">
+            <section class = "hidden" id = "Rezeptliste">
               <!-- In diese Section wird eine Auflistung von Rezepten
                    mit zugehörigem Bild durch JavaScript erzeugt. Zudem
                    wird das Löschen-Icon hinzugefügt.
