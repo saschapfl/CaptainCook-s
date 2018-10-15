@@ -1,0 +1,26 @@
+
+
+@media (min-device-width: 1200px) {
+
+h1 {
+  font-size: 25;
+  padding: 0.7em;
+}
+main {
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin:auto;
+
+}
+
+.thumbnail {
+  height: 300px;
+  width: 1000px;
+
+
+}
+#table{
+    text-align: center;
+    margin: auto;
+}
