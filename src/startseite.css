@@ -2,30 +2,39 @@
 
 @media (min-device-width: 1200px) {
 
-h1 {
-  font-size: 25;
-  padding: 0.7em;
-}
+
 main {
     justify-content: center;
     align-items: center;
     display: block;
     margin:auto;
+    font-size: 150%;
+    font-family: verdana;
+    
 
 }
 
 header {
-    display: inline-block;
-    width: 100%;
+    display: block;
+}
+
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2017/10/22/21/02/food-2879265_1280.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 
 }
 
 #Toolbar {
     width: 100%;
+    padding-left: 150px;
+    margin-top: 30px;
 }
 
 #Suche{
-    width: 80%;
+    height: 40px;
+    width: 1300px;
 }
 
 #Toolbar > img {
@@ -34,19 +43,28 @@ header {
 }
 
 #Filter {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 #Neu{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 #table{
     text-align: center;
     justify-content: center;
     display: flex;
+}
+
+#Logo {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    opacity: 0.5;
+    margin-top: 45px;
 }
 
 ul{
