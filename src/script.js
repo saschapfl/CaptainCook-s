@@ -1,6 +1,10 @@
 let switchtoaddRecipe = () =>{
-    let a = document.querySelector("#Rezept_hinzufuegen");
-    a.classList.remove("hidden");
+    let Startseite = document.querySelector("#Startseite");
+    Startseite.classList.remove("active");
+    Startseite.classList.add("hidden");
+    let Rezept_hinzufuegen = document.querySelector("#Rezept_hinzufuegen");
+    Rezept_hinzufuegen.classList.remove("hidden");
+    Rezept_hinzufuegen.classList.add("active");
 
 }
 let switchtolist = (source) =>{
@@ -33,3 +37,14 @@ let switchtolist = (source) =>{
 
       }
     }
+
+let backtoHome = (source) =>{
+    let Rezept_hinzufuegen = document.querySelector("#Rezept_hinzufuegen");
+    Rezept_hinzufuegen.classList.remove("active");
+    Rezept_hinzufuegen.classList.add("hidden");
+    let Startseite = document.querySelector("#Startseite");
+    Startseite.classList.remove("hidden");
+    Startseite.classList.add("active");
+
+
+}
