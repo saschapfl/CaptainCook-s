@@ -5,6 +5,7 @@
         <title>CaptainCook</title>
         <link rel="stylesheet" href="startseite.css" />
         <link rel = "stylesheet" href = "rezeptliste.css" />
+        <link rel ="srylesheet" href = "Rezepte_hinzufügen.css" />"
         <script src="script.js"></script>
     </head>
     <body>
@@ -42,80 +43,82 @@
                     </tr>
                 </table>
             </section>
+            <section id="Rezepte_hinzufügen">
                 <div class="modal">
-                <div class="modal-content">
-                    <span class="close-button">X</span>
-                    <h1>Rezepte hinzufuegen:</h1>
-                        <div>
-                            <table>
-                                <tr>
-                                    <th>
-                                        Name:
-                                    </th>
-                                    <th>
-                                        <form>
-                                            <label for="Name_hinzuf"&uuml"gen">
+                    <div class="modal-content">
+                        <span class="close-button">X</span>
+                        <h2>Rezepte hinzufuegen:</h2>
+                    <div>
+                        <table>
+                            <tr>
+                                <th>
+                                    Name:
+                                </th>
+                                <th>
+                                    <form>
+                                        <label for="Name_hinzuf"&uuml"gen">
                                             <input id="rname" name="rname" placeholder ="Rezeptname hinzufuegen">
-                                            </label>
-                                        </form>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Bild:
-                                    </th>
-                                    <th>
-                                        <form>
-                                            <label for="Bildpfad_hinzuf"&uuml"gen">
-                                            <input id="bpfad" name="bpfad" placeholder ="Bildpfad hinzufuegen">
-                                            </label>
-                                        </form>
-                                    </th>
-                                </tr>
-                                <tr>
+                                        </label>
+                                    </form>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Bild:
+                                </th>
+                                <th>
+                                    <form>
+                                        <label for="Bildpfad_hinzuf"&uuml"gen">
+                                        <input id="bpfad" name="bpfad" placeholder ="Bildpfad hinzufuegen">
+                                        </label>
+                                    </form>
+                                </th>
+                                    </tr>
+                                    <tr>
                                 <th>
                                     Kategorie:
-                                    </th>
-                                    <th>
-                                        <form>
-                                            <label for="Kategorie_hinzuf"&uuml"gen">
-                                            <input id="kat" name="kat" placeholder ="Kategorie eingeben">
-                                            </label>
-                                        </form>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Kochanleitung:
-                                    </th>
-                                    <th>
-                                        <form>
-                                            <label for="Kochanleitung_hinzuf"&uuml"gen">
-                                            <input id="kochleitung" name="kochleitung" placeholder ="Kochanleitung hinzufuegen">
-                                            </label>
-                                        </form>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Zutaten:
-                                    </th>
-                                    <th>
-                                        <button>Zutaten hinzuf&uumlgen</button>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th>
+                                </th>
+                                <th>
+                                    <form>
+                                        <label for="Kategorie_hinzuf"&uuml"gen">
+                                        <input id="kat" name="kat" placeholder ="Kategorie eingeben">
+                                        </label>
+                                    </form>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Kochanleitung:
+                                </th>
+                                <th>
+                                    <form>
+                                        <label for="Kochanleitung_hinzuf"&uuml"gen">
+                                        <input id="kochleitung" name="kochleitung" placeholder ="Kochanleitung hinzufuegen">
+                                        </label>
+                                    </form>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Zutaten:
+                                </th>
+                                <th>
+                                    <button>Zutaten hinzuf&uumlgen</button>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
 
-                                    </th>
-                                    <th>
-                                        <button>Speichern</button>
-                                    </th>
-                                </tr>
-                            </table>
+                                </th>
+                                <th>
+                                    <button>Speichern</button>
+                                </th>
+                            </tr>
+                        </table>
                         </div>
+                    </div>
                 </div>
-            </div>
+            </section>
             <section class = "hidden" id = "Rezept_anzeigen">
                 <table>
                     <th>
