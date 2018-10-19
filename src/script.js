@@ -38,14 +38,17 @@ let switchtolist = (source) =>{
       }
     }
 
-let backtoHome = (source) =>{
-    let Rezept_hinzufuegen = document.querySelector("#Rezept_hinzufuegen");
-    Rezept_hinzufuegen.classList.remove("active");
-    Rezept_hinzufuegen.classList.add("hidden");
+let backtoHome = () =>{
+    let activClass = document.querySelector(".active");
+    activClass.classList.remove("active");
+    activClass.classList.add("hidden");
+
     let Startseite = document.querySelector("#Startseite");
     Startseite.classList.remove("hidden");
     Startseite.classList.add("active");
 }
+
+
 
 window.addEventListener("load", () => {
    let modal = document.querySelector(".modal");
