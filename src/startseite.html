@@ -10,39 +10,39 @@
     </head>
     <body>
         <header>
-        <section id = "Logo">
-            <img src = "CaptainCook.jpg" width="280" height="255" onclick = "backtoHome(this)">
-        </section>
-            <div id = "Toolbar">
-                <ul>
-                    <li><input type = "search" placeholder="Suche..." id = "Suche"></li>
-                    <li><img id = "Filter" src = "filterIcon.png"></li>
-                    <li><img id = "Neu" src = "addIcon.png" class="trigger"></li>
-                </ul>
-            </div>
-            <!--
-                 2. Überschrift, die die ausgewählte Kategorie anzeigt
-                 Wird in JavaScript abhängig von aktiver Seite erzeugt
-            -->
-            <h2></h2>
-        </header>
-        <main>
-            <section class = "active" id ="Startseite">
-                <table id = "table">
-                    <tr>
-                        <td><img src = "schnelle_Rezepte.jpg" width="400" height="320" onClick = "switchtolist(this)" /><b> Schnelle Rezepte </b> </th>
-                        <td><img src = "vegetarische_Rezepte.jpg" width="400" height="320" onClick = "switchtolist(this)" /> <b>Vegetarische Rezepte</b> </th>
-                    </tr>
-                    <tr>
-                        <td><img src = "mediterrane_Rezepte.jpg" width="400" height="320" onClick = "switchtolist(this)" /> <b>Mediterrane Rezepte</b> </td>
-                        <td><img src = "Pizza_Pasta.jpg" width="400" height="320" onClick = "switchtolist(this)" /> <b>Pizza & Pasta</b></td>
-                    </tr>
-                    <tr>
-                        <td><img src = "alle_Rezepte.jpg" width="400" height="320" onClick = "switchtolist(this)" /> <b>Alle Rezepte</b></td>
-                        <td><img src= "scharfe_Rezepte.jpg" width="400" height="320" onClick = "switchtolist(this)" /> <b>Scharfe Rezepte</b></td>
-                    </tr>
-                </table>
-            </section>
+            <section id = "Logo">
+               <img src = "CaptainCook.jpg" onclick = "backtoHome(this)" class = "CaptainCook">
+           </section>
+               <div id = "Toolbar">
+                   <ul>
+                       <li><input type = "search" placeholder="Suche..." id = "Suche"></li>
+                       <li><img id = "Filter" src = "filterIcon.png"></li>
+                       <li><img id = "Neu" src = "addIcon.png" class = "trigger"</li>
+                   </ul>
+               </div>
+               <!--
+                    2. Überschrift, die die ausgewählte Kategorie anzeigt
+                    Wird in JavaScript abhängig von aktiver Seite erzeugt
+               -->
+               <h2></h2>
+           </header>
+           <main>
+               <section class = "active" id ="Startseite">
+                   <table id = "table">
+                       <tr>
+                           <td><img src = "schnelle_Rezepte.jpg" onClick = "switchtolist(this)"  class = "thumbnail"/><b> Schnelle Rezepte </b> </th>
+                           <td><img src = "vegetarische_Rezepte.jpg" onClick = "switchtolist(this)" class = "thumbnail"/> <b>Vegetarische Rezepte</b> </th>
+                       </tr>
+                       <tr>
+                           <td><img src = "mediterrane_Rezepte.jpg"  onClick = "switchtolist(this)" class = "thumbnail"/> <b>Mediterrane Rezepte</b> </td>
+                           <td><img src = "Pizza_Pasta.jpg"  onClick = "switchtolist(this)" class = "thumbnail"/> <b>Pizza & Pasta</b></td>
+                       </tr>
+                       <tr>
+                           <td><img src = "alle_Rezepte.jpg"  onClick = "switchtolist(this)" class = "thumbnail"/> <b>Alle Rezepte</b></td>
+                           <td><img src= "scharfe_Rezepte.jpg" onClick = "switchtolist(this)" class = "thumbnail"/> <b>Scharfe Rezepte</b></td>
+                       </tr>
+                   </table>
+               </section>
             <section id="Rezepte_hinzufügen">
                 <div class="modal">
                     <div class="modal-content">
