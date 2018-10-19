@@ -45,6 +45,23 @@ let backtoHome = (source) =>{
     let Startseite = document.querySelector("#Startseite");
     Startseite.classList.remove("hidden");
     Startseite.classList.add("active");
-
-
 }
+
+window.addEventListener("load", () => {
+   let modal = document.querySelector(".modal");
+   let trigger = document.querySelector(".trigger");
+   let closeButton = document.querySelector(".close-button");
+
+   let toggleModal = () =>{
+       modal.classList.toggle("show-modal");
+   }
+   let windowOnClick = (event) =>{
+       if (event.target === modal) {
+           toggleModal();
+       }
+   }
+
+   trigger.addEventListener("click", toggleModal);
+   closeButton.addEventListener("click", toggleModal);
+   window.addEventListener("click", windowOnClick);
+});
