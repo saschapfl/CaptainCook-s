@@ -1,85 +1,139 @@
 
 
-@media (min-device-width: 1200px) {
-
 
 main {
-    justify-content: center;
-    align-items: center;
-    display: block;
-    margin:auto;
-    font-size: 150%;
-    font-family: verdana;
+        justify-content: center;
+        align-items: center;
+        display: block;
+        margin:auto;
+        font-size: 150%;
+        font-family: verdana;
+    }
 
+    header {
+        display: block;
+    }
 
-}
+    body {
+        background-image: url("Hintergrund.jpg");
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        overflow-x: hidden;
+    }
 
-header {
-    display: block;
-}
+    #Toolbar {
+        width: 100%;
+        padding-left: 150px;
+        margin-top: 30px;
+    }
 
-body {
-    background-image: url("https://cdn.pixabay.com/photo/2017/10/22/21/02/food-2879265_1280.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    #Suche{
+        height: 40px;
+        width: 850px;
+    }
 
-}
+    #Toolbar > img {
+        height: 30px;
+        width: 30px;
+    }
 
-#Toolbar {
-    width: 100%;
-    padding-left: 150px;
-    margin-top: 30px;
-}
+    #Filter {
+        width: 40px;
+        height: 40px;
+    }
 
-#Suche{
-    height: 40px;
-    width: 1300px;
-}
+    #Neu{
+        width: 40px;
+        height: 40px;
+    }
 
-#Toolbar > img {
-    height: 30px;
-    width: 30px;
-}
+    #table{
+        text-align: center;
+        justify-content: center;
+        display: flex;
+    }
 
-#Filter {
-    width: 40px;
-    height: 40px;
-}
+    #Logo {
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        cursor: pointer;
+        opacity: 0.5;
+        margin-top: 45px;
+    }
 
-#Neu{
-    width: 40px;
-    height: 40px;
-}
+    ul{
+        display: flex;
+    }
+    li{
+        display: inherit;
+    }
+    td {
+        margin: 2em;
+        padding: 2em;
+        height: 400px;
+        width: 200px;
+    }
 
-#table{
-    text-align: center;
-    justify-content: center;
-    display: flex;
-}
+    .hidden {
+        display: none;
+    }
 
-#Logo {
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    cursor: pointer;
-    opacity: 0.5;
-    margin-top: 45px;
-}
+    .thumbnail{
+        width: 400px;
+        height: 300px;
+    }
 
-ul{
-    display: flex;
-}
-li{
-    display: inherit;
-}
-td {
-    margin: 2em;
-    padding: 2em;
-    height: 400px;
-    width: 200px;
-}
+    .CaptainCook {
+        width: 280px;
+        height: 255px;
+    }
 
-.hidden {
-    display: none;
-}
+    @media (max-device-width: 480px) {
+        main{
+            font-size: 50%;
+        }
+        #Suche{
+            height: 10px;
+            width: 200px;
+        }
+
+        #Toolbar > img {
+            height: 10px;
+            width: 10px;
+        }
+
+        #Toolbar {
+            width: 100%;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        #Filter {
+            width: 10px;
+            height: 10px;
+        }
+
+        #Neu{
+            width: 10px;
+            height: 10px;
+        }
+
+        .thumbnail{
+            width: 125px;
+            height: 75px;
+        }
+
+        .CaptainCook {
+            width: 100px;
+            height: 115px;
+        }
+
+        td {
+            margin: 1em;
+            padding: 1em;
+            height: 100px;
+            width: 50px;
+        }
+    }
