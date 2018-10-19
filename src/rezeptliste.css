@@ -1,22 +1,43 @@
-#Rezeptliste{
-}
+
 #Rezeptliste > div{
     display: inline-block;
-    width: 100%;
-    height: 400px;
+    font-size: 100%;
+    position: relative;
+    transition: 0.5s;
+    margin: 0.5em;
+    width: 290px;
+    height: 150px;
 }
-#Rezeptliste > div > p{
-    font-family: sans-serif;
-    color: grey;
-    font-size: 16pt;
+#Rezeptliste > div:hover{
+    cursor: pointer;
+    box-shadow: 7px 7px 5px grey;
 }
 #Rezeptliste > div > img{
-    border: 1px solid lightgrey;
-    width: 90%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
-#Rezeptliste > div > #deleteIcon{
-    border: none;
-    width: 5%;
-    height: 20%;
+.Beschriftung{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ababab;
+    height: 2.0em;
+    line-height: 2.0em;
+    background-color: rgba(0,0,0,0.3);
+    font-family: sans-serif;
+    color: white;
+    font-size: 24px;
+}
+.Löschen > img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    transition: 0.5s;
+}
+.Löschen > img:hover{
+    transform: scale(1.17);
 }
