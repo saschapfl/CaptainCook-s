@@ -7,6 +7,7 @@
         <link rel = "stylesheet" href = "rezeptliste.css" />
         <link rel ="stylesheet" href = "Rezepte_hinzufügen.css" />"
         <script src="script.js"></script>
+        <script src="dropdown.js"></script>
     </head>
     <body>
         <header>
@@ -16,10 +17,19 @@
                <div id = "Toolbar">
                    <ul>
                        <li><input type = "search" placeholder="Suche..." id = "Suche"></li>
-                       <li><img id = "Filter" src = "filterIcon.png"></li>
-                       <li><img id = "Neu" src = "addIcon.png" class = "trigger"</li>
+                       <li><img id = "Neu" src = "addIcon.png" class = "trigger"></li>
                    </ul>
                </div>
+               <section class="hidden" id = "dropdown">
+                   <div class="dropdown">
+                       <button onclick="select()" class="dropbtn">Sortierung</button>
+                       <div id="myDropdown" class="dropdown-content">
+                           <a href="#">Alphabet</a>
+                           <a href="#">Zuletzt hinzugefügt</a>
+                       </div>
+                   </div>
+                    </div>
+               </section>
                <!--
                     2. Überschrift, die die ausgewählte Kategorie anzeigt
                     Wird in JavaScript abhängig von aktiver Seite erzeugt
