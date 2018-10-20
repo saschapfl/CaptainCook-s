@@ -14,6 +14,9 @@ let switchtolist = (source) =>{
       let Rezeptliste = document.querySelector("#Rezeptliste");
       Rezeptliste.classList.remove("hidden");
       Rezeptliste.classList.add("active");
+      let dropdown = document.querySelector("#dropdown");
+      dropdown.classList.remove("hidden");
+      dropdown.classList.add("active");
       let image = source.getAttribute("src");
       switch(image){
         case "schnelle_Rezepte.jpg":
