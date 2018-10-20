@@ -22,30 +22,25 @@ main {
         overflow-x: hidden;
     }
 
-    #Toolbar {
-        width: 100%;
-        padding-left: 150px;
-        margin-top: 30px;
-    }
+
 
     #Suche{
-        height: 40px;
-        width: 850px;
-    }
-
-    #Toolbar > img {
-        height: 30px;
-        width: 30px;
+        height: 60%;
+        width: 840px;
+        padding-left: none;
+        margin-top: 2.5%;
     }
 
     #Filter {
-        width: 40px;
-        height: 40px;
+        width: 10%;
+        height: 60%;
+        margin-top: 2.5%;
     }
 
     #Neu{
-        width: 40px;
-        height: 40px;
+        width: 10%;
+        height: 80%;
+        margin-top: 2.5%;
     }
 
     #table{
@@ -65,6 +60,8 @@ main {
 
     ul{
         display: flex;
+        padding-left: 18%;
+        width: 100%;
     }
     li{
         display: inherit;
@@ -81,53 +78,65 @@ main {
     }
 
     .thumbnail{
-        width: 400px;
-        height: 300px;
+        width: 100%;
+        height: 60%;
     }
 
     .CaptainCook {
-        width: 280px;
-        height: 255px;
+        width: 30%;
+        height: 30%;
     }
 
-    @media (max-device-width: 480px) {
+    .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 20%;
+    font-size: 90%;
+    border: none;
+    cursor: pointer;
+}
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 50%
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 19.5px;
+        text-decoration: none;
+        display: block;
+        font-size: 70%;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display:block;
+    }
+
+@media (max-device-width: 480px) {
         main{
             font-size: 50%;
         }
+
         #Suche{
-            height: 10px;
-            width: 200px;
-        }
-
-        #Toolbar > img {
-            height: 10px;
-            width: 10px;
-        }
-
-        #Toolbar {
-            width: 100%;
-            padding-left: 10px;
-            margin-top: 30px;
-        }
-
-        #Filter {
-            width: 10px;
-            height: 10px;
-        }
-
-        #Neu{
-            width: 10px;
-            height: 10px;
-        }
-
-        .thumbnail{
-            width: 125px;
-            height: 75px;
-        }
-
-        .CaptainCook {
-            width: 100px;
-            height: 115px;
+            width: 250px;
         }
 
         td {
@@ -136,4 +145,14 @@ main {
             height: 100px;
             width: 50px;
         }
-    }
+
+
+        .dropbtn {
+            font-size: 30%;
+        }
+
+        .dropdown-content a{
+            font-size: 25%;
+            padding: 5.75px;
+        }
+}
