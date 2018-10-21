@@ -57,9 +57,9 @@
                 <div class="modal">
                     <div class="modal-content">
                         <span class="close-button">X</span>
-                        <h2>Rezepte hinzufuegen:</h2>
+                        <h2>Rezepte hinzuf&uumlgen</h2>
                     <div>
-                        <table>
+                        <table class="Tab_rez">
                             <tr>
                                 <th>
                                     Name:
@@ -102,9 +102,7 @@
                                 </th>
                                 <th>
                                     <form>
-                                        <label for="Kochanleitung_hinzuf"&uuml"gen">
-                                        <input id="kochleitung" name="kochleitung" placeholder ="Kochanleitung hinzufuegen">
-                                        </label>
+                                        <textarea placeholder="Kochanleitung eingeben" id="kochleitung"></textarea>
                                     </form>
                                 </th>
                             </tr>
@@ -113,7 +111,7 @@
                                     Zutaten:
                                 </th>
                                 <th>
-                                    <button>Zutaten hinzuf&uumlgen</button>
+                                    <textarea placeholder="Zutaten eingeben" id="Zutaten"></textarea>
                                 </th>
                             </tr>
                             <tr>
@@ -121,7 +119,7 @@
 
                                 </th>
                                 <th>
-                                    <button>Speichern</button>
+                                    <button class="save">Speichern</button>
                                 </th>
                             </tr>
                         </table>
