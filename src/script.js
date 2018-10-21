@@ -2,6 +2,7 @@ window.addEventListener("load", () => {
    let modal = document.querySelector(".modal");
    let trigger = document.querySelector(".trigger");
    let closeButton = document.querySelector(".close-button");
+   let saveButton = document.querySelector(".save");
    let rezeptliste = document.querySelectorAll("#Rezeptliste > div");
    for(let i = 0; i < rezeptliste.length;i++){
      rezeptliste[i].addEventListener("click", switchtoRecipe);
@@ -17,11 +18,12 @@ window.addEventListener("load", () => {
 
    trigger.addEventListener("click", toggleModal);
    closeButton.addEventListener("click", toggleModal);
+   saveButton.addEventListener("click", toggleModal);
    window.addEventListener("click", windowOnClick);
 });
 
 let deleteRecipe = (source) =>{
-  
+
 }
 
 let switchtoaddRecipe = () =>{
