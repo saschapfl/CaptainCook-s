@@ -67,7 +67,7 @@
 
     }
 
-    let switchtolist = (source) =>{
+    let switchtolist = async (source) =>{
           let Startseite = document.querySelector("#Startseite");
           Startseite.classList.remove("active");
           Startseite.classList.add("hidden");
@@ -80,30 +80,31 @@
           //Eingabefeld holen und je nach Bild Wert anpassen
           let input = document.querySelector("#Suche");
           let image = source.getAttribute("src");
+          let recipe = "";
           switch(image){
             case "schnelle_Rezepte.jpg":
             input.setAttribute("value", "Schnelle Rezepte");
-            let recipe =  await recipes.search("Schnelle Rezepte");
+             recipe =  await recipes.search("Schnelle Rezepte");
             break;
             case "vegetarische_Rezepte.jpg":
             input.setAttribute("value", "Vegetarische Rezepte");
-            let recipe =  await recipes.search("Vegetarische Rezepte");
+             recipe =  await recipes.search("Vegetarische Rezepte");
             break;
             case "mediterrane_Rezepte.jpg":
             input.setAttribute("value", "Mediterrane Rezepte");
-            let recipe =  await recipes.search("Mediterrane Rezepte");
+             recipe =  await recipes.search("Mediterrane Rezepte");
             break;
             case "Pizza_Pasta.jpg":
             input.setAttribute("value", "Pizza und Pasta");
-            let recipe =  await recipes.search("Pizza und Pasta");
+             recipe =  await recipes.search("Pizza und Pasta");
             break;
             case "alle_Rezepte.jpg":
             input.setAttribute("value", "Alle Rezepte");
-            let recipe =  await recipes.search("Alle Rezepte");
+             recipe =  await recipes.search("Alle Rezepte");
             break;
             case "scharfe_Rezepte.jpg":
             input.setAttribute("value", "Scharfe Rezepte");
-            let recipe =  await recipes.search("Scharfe Rezepte");
+             recipe =  await recipes.search("Scharfe Rezepte");
             break;
 
           }
