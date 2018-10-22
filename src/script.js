@@ -21,15 +21,17 @@
             }
 
         Standardrezepte();
-
+        //Modal,trigger,closeButton,saveButton,rezepliste holen
        let modal = document.querySelector(".modal");
        let trigger = document.querySelector(".trigger");
        let closeButton = document.querySelector(".close-button");
        let saveButton = document.querySelector(".save");
        let rezeptliste = document.querySelectorAll("#Rezeptliste > div");
+       // Allen Kategorien auf der HP einen Eventlistener adden
        for(let i = 0; i < rezeptliste.length;i++){
          rezeptliste[i].addEventListener("click", switchtoRecipe);
        }
+       // Zum öffnen un schließen
        let toggleModal = () =>{
               modal.classList.toggle("show-modal");
        }
@@ -38,6 +40,7 @@
                toggleModal();
            }
        }
+       // Dexie
        let addRecipe = async () => {
         let recipes = new Recipes();
         recipes.saveNew({
@@ -63,12 +66,20 @@
        window.addEventListener("click", windowOnClick);
     });
 
-    let deleteRecipe = (evt) => {
+    let deleteRecipe = (event) => {
         // Angeklicktes <img>: evt.target
-        // console.log(evt);
         // Click-Event nicht an übergeordnetes Element weiterreichen,
         // weil sonst das Rezept aufgerufen werden würde
-        evt.stopPropagation();
+        event.stopPropagation();
+        // Soll das Rezept wirklich gelöscht werden?
+        if (confirm("Möcheten Sie das Rezept wirklich löschen?") == true) {
+        // id des zu löschendem Rezept holen
+        let id = event.target.parentNode.parentNode.getAttribute("id");
+        // Raushauen
+        database.recipes.delete(id);
+        }else {
+            //mach nix :)
+        }
     }
 
     let switchtolist = async (source) =>{
