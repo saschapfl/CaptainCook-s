@@ -22,49 +22,53 @@
 
         Standardrezepte();
 
-   let modal = document.querySelector(".modal");
-   let trigger = document.querySelector(".trigger");
-   let closeButton = document.querySelector(".close-button");
-   let saveButton = document.querySelector(".save");
-   let rezeptliste = document.querySelectorAll("#Rezeptliste > div");
-   for(let i = 0; i < rezeptliste.length;i++){
-     rezeptliste[i].addEventListener("click", switchtoRecipe);
-   }
-   let toggleModal = () =>{
-          modal.classList.toggle("show-modal");
-   }
-   let windowOnClick = (event) =>{
-       if (event.target === modal) {
-           toggleModal();
+       let modal = document.querySelector(".modal");
+       let trigger = document.querySelector(".trigger");
+       let closeButton = document.querySelector(".close-button");
+       let saveButton = document.querySelector(".save");
+       let rezeptliste = document.querySelectorAll("#Rezeptliste > div");
+       for(let i = 0; i < rezeptliste.length;i++){
+         rezeptliste[i].addEventListener("click", switchtoRecipe);
        }
-   }
-   let addRecipe = async () => {
-    let recipes = new Recipes();
-    recipes.saveNew({
-        recipename: document.querySelector("#rname").value,
-        picture: document.querySelector("#bpfad").value,
-        categorie: document.querySelector("#kat").value,
-        description: document.querySelector("#kochleitung").value,
-        ingredients: document.querySelector("#Zutaten").value,
-        format: "html",
+       let toggleModal = () =>{
+              modal.classList.toggle("show-modal");
+       }
+       let windowOnClick = (event) =>{
+           if (event.target === modal) {
+               toggleModal();
+           }
+       }
+       let addRecipe = async () => {
+        let recipes = new Recipes();
+        recipes.saveNew({
+            recipename: document.querySelector("#rname").value,
+            picture: document.querySelector("#bpfad").value,
+            categorie: document.querySelector("#kat").value,
+            description: document.querySelector("#kochleitung").value,
+            ingredients: document.querySelector("#Zutaten").value,
+            format: "html",
 
 
 
-    })
-    let modal = document.querySelector(".modal")
-    modal.classList.toggle("show-modal");
-    let recipe =  await recipes.search();
-    console.log("Gespeicherte Rezepte:", recipe);
-   }
+        })
+        let modal = document.querySelector(".modal")
+        modal.classList.toggle("show-modal");
+        let recipe =  await recipes.search();
+        console.log("Gespeicherte Rezepte:", recipe);
+       }
 
-   trigger.addEventListener("click", toggleModal);
-   closeButton.addEventListener("click", toggleModal);
-   saveButton.addEventListener("click", addRecipe);
-   window.addEventListener("click", windowOnClick);
+       trigger.addEventListener("click", toggleModal);
+       closeButton.addEventListener("click", toggleModal);
+       saveButton.addEventListener("click", addRecipe);
+       window.addEventListener("click", windowOnClick);
     });
 
-    let deleteRecipe = (source) =>{
-
+    let deleteRecipe = (evt) => {
+        // Angeklicktes <img>: evt.target
+        // console.log(evt);
+        // Click-Event nicht an übergeordnetes Element weiterreichen,
+        // weil sonst das Rezept aufgerufen werden würde
+        evt.stopPropagation();
     }
 
     let switchtolist = async (source) =>{
