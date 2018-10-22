@@ -27,10 +27,14 @@ main {
     #Suche{
         height: 60%;
         width: 840px;
-        padding-left: none;
         margin-top: 2.5%;
+        margin-right: 0.5em;
     }
-
+    #Toolbar{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     #Filter {
         width: 10%;
         height: 60%;
@@ -38,9 +42,17 @@ main {
     }
 
     #Neu{
-        width: 10%;
+        width: 80%;
         height: 80%;
         margin-top: 2.5%;
+        position: absolute;
+        top: 0.8em;
+        filter: grayscale(100%);
+        transition: 0.5s;
+    }
+    #Neu:hover{
+        filter: grayscale(0%);
+        cursor: pointer;
     }
 
     #table{
@@ -58,19 +70,47 @@ main {
         margin-top: 45px;
     }
 
-    ul{
+  #Toolbar > ul{
         display: flex;
-        padding-left: 18%;
+        text-align: center;
+        justify-content: center;
         width: 100%;
+        padding: 0;
     }
     li{
         display: inherit;
     }
+    #Neu_li{
+      width: 41.16px;
+      position: relative;
+    }
     td {
-        margin: 2em;
-        padding: 2em;
-        height: 400px;
-        width: 200px;
+        height: 393.667px;
+        width: 524.333px;
+        position: relative;
+        padding: 0;
+        transition: 0.5s;
+    }
+    td:hover{
+      transform: scale(1.1);
+      cursor: pointer;
+      color: blue;
+    }
+    .Kategorie{
+      position: absolute;
+      top: 170px;
+      left: 0;
+      width: 90.5%;
+      margin-left: 24px;
+      margin-right: 24px;
+      text-align: center;
+      border: 1px solid #ababab;
+      height: 2.5em;
+      line-height: 2.5em;
+      background-color: rgba(0,0,0,0.3);
+      font-family: sans-serif;
+      color: white;
+      font-size: auto;
     }
 
     .hidden {
@@ -78,8 +118,9 @@ main {
     }
 
     .thumbnail{
-        width: 100%;
-        height: 60%;
+        width: 90%;
+        height: 90%;
+        margin: 1em;
     }
 
     .CaptainCook {
@@ -130,29 +171,53 @@ main {
         display:block;
     }
 
+@media (max-device-width: 1024px) {
+     #Suche{
+       width: 600px;
+ }
+
 @media (max-device-width: 480px) {
-        main{
-            font-size: 50%;
-        }
+  td {
+      position: inherit;
+      height: 100px;
+      width: 200px;
+      font-size: 12pt;
+      top: 50px;
+     }
+  .Kategorie{
+     position: inherit;
+     width: 90.5%;
+     margin-left: 12px;
+     margin-right: 12px;
+     text-align: center;
+     border: 1px solid #ababab;
+     height: 1em;
+     line-height: 1em;
+     background-color: rgba(0,0,0,0.3);
+     font-family: sans-serif;
+     color: white;
+     font-size: 9pt;
 
-        #Suche{
-            width: 250px;
-        }
-
-        td {
-            margin: 1em;
-            padding: 1em;
-            height: 100px;
-            width: 50px;
-        }
-
-
-        .dropbtn {
-            font-size: 30%;
-        }
-
-        .dropdown-content a{
-            font-size: 25%;
-            padding: 5.75px;
-        }
+  }
+  .thumbnail{
+    margin: 0.5em;
+    margin-bottom: 0;
+  }
+  td:hover{
+    transform: none;
+  }
+  #Suche{
+    width: 250px;
+  }
+  #Neu_li{
+    height: 41.16px;
+    position: relative;
+  }
+  #Neu{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transition: 0s;
+  }
 }
