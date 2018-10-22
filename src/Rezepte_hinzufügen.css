@@ -71,19 +71,7 @@ h2 {
     height: auto;
 }
 
-#rname{
-    width: 15rem;
-    height: 1rem;
-    font-family: arial;
-}
-
-#bpfad{
-    width: 15rem;
-    height: 1rem;
-    font-family: arial;
-}
-
-#kat{
+#rname, #bpfad, #kat{
     width: 15rem;
     height: 1rem;
     font-family: arial;
