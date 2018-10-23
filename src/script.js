@@ -6,19 +6,6 @@
             let recipes = new Recipes();
             let recipe =  await recipes.search();
             console.log("Gespeicherte Rezepte:", recipe);
-
-                await Promise.all([
-                    recipes.saveNew({
-                        recipename: "Pizza",
-                        picture: "pic",
-                        categorie: "Pizza&Pasta",
-                        description: "so mache ich Pizza",
-                        ingredients: "das ist drin",
-                        format: "html",
-
-                    }),
-
-                ]);
             }
 
         Standardrezepte();
@@ -27,11 +14,7 @@
        let trigger = document.querySelector(".trigger");
        let closeButton = document.querySelector(".close-button");
        let saveButton = document.querySelector(".save");
-       let rezeptliste = document.querySelectorAll("#Rezeptliste > div");
-       // Allen Kategorien auf der HP einen Eventlistener adden
-       for(let i = 0; i < rezeptliste.length;i++){
-         rezeptliste[i].addEventListener("click", switchtoRecipe);
-       }
+
        // Zum öffnen un schließen
        let toggleModal = () =>{
               modal.classList.toggle("show-modal");
@@ -73,7 +56,7 @@
         // weil sonst das Rezept aufgerufen werden würde
         event.stopPropagation();
         // Soll das Rezept wirklich gelöscht werden?
-        if (confirm("Möcheten Sie das Rezept wirklich löschen?") == true) {
+        if (confirm("Möchten Sie das Rezept wirklich löschen?") == true) {
             // id des zu löschendem Rezept holen
             let id = event.target.parentNode.parentNode.getAttribute("id");
             // Raushauen
@@ -88,14 +71,20 @@
     }
 
     let switchtolist = async (source) =>{
+          //Seite switchen
           let Startseite = document.querySelector("#Startseite");
           Startseite.classList.remove("active");
           Startseite.classList.add("hidden");
           let Rezeptliste = document.querySelector("#Rezeptliste");
           Rezeptliste.classList.remove("hidden");
           Rezeptliste.classList.add("active");
+
+          //Sortieren-Button sichtbar machen
           let dropdown = document.querySelector("#dropdown");
           dropdown.classList.remove("hidden");
+
+          //Datenbank initialisieren
+          recipes = new Recipes();
 
           //Eingabefeld holen und je nach Bild Wert anpassen
           source = source.childNodes;
@@ -127,7 +116,37 @@
             input.setAttribute("value", "Scharfe Rezepte");
              recipe =  await recipes.search("Scharfe Rezepte");
             break;
+          }
+          for(let i = 0; i < recipe.length; i++){
+            let aktuelles_Rezept = recipe[i];
+            let Rezeptbereich = document.createElement("div");
+            Rezeptbereich.setAttribute("id", aktuelles_Rezept["id"]);
 
+            //Bild erstellen und einfügen
+            let Bild = document.createElement("img");
+            Bild.setAttribute("src", aktuelles_Rezept["picture"]);
+            Rezeptbereich.appendChild(Bild);
+            //Beschriftung erstellen und einfügen
+            let Beschriftung = document.createElement("span");
+            Beschriftung.textContent = aktuelles_Rezept["recipename"];
+            Beschriftung.setAttribute("class", "Beschriftung");
+            Rezeptbereich.appendChild(Beschriftung);
+            //Löschen-Beschriftung erstellen und Klassennamen für CSS setzen
+            Beschriftung = document.createElement("span");
+            Beschriftung.setAttribute("class", "Löschen");
+            //Löschen-Icon erstellen, klickbar machen und an Löschen-Beschriftung hängen
+            Bild = document.createElement("img");
+            Bild.setAttribute("src", "deleteIcon.png");
+            Bild.addEventListener("click", deleteRecipe);
+            Beschriftung.appendChild(Bild);
+            //Beschriftung inclusive Löschen-Icon an Rezeptbereich hängen
+            Rezeptbereich.appendChild(Beschriftung);
+            //Rezeptbereich in Section einfügen
+            Rezeptliste.appendChild(Rezeptbereich);
+          }
+          let rezepte = Rezeptliste.childNodes;
+          for(let i = 0; i < rezepte.length;i++){
+            rezepte[i].addEventListener("click", switchtoRecipe);
           }
         }
 
@@ -146,6 +165,11 @@
         //Wert der Suchleiste zurücksetzen
         let input = document.querySelector("#Suche");
         input.setAttribute("value", "");
+
+        //Inhalt der Listenansicht löschen
+        if(activClass.getAttribute("id") === "Rezeptliste"){
+          activClass.innerHTML = "";
+        }
     }
 
 
@@ -164,9 +188,14 @@
 
        //Das gewünschte Rezept initialisieren
        let id = event.currentTarget.getAttribute("id");
-       let rezeptname = event.currentTarget.childNodes[3].innerHTML;
+       let rezeptname = event.currentTarget.childNodes[1].innerHTML;
 
        //In Suchleiste aktuellen Rezeptnamen eintragen
        let input = document.querySelector("#Suche");
        input.setAttribute("value", rezeptname);
+
+       //Inhalt der Listenansicht löschen
+       if(aktuelleSeite.getAttribute("id") === "Rezeptliste"){
+         aktuelleSeite.innerHTML = "";
+       }
     }
