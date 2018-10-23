@@ -100,3 +100,31 @@ h2 {
     font-size: 8pt;
     resize: none;
 }
+@media (max-device-width: 480px) {
+    .modal-content {
+            width: 15rem;
+            height: 23rem;
+        }
+        h2 {
+            font-size: 12pt;
+        }
+        .Tab_rez th{
+            font-size: 8pt;
+
+        }
+        #rname, #bpfad, #kat{
+            width: 10rem;
+            height: 1rem;
+            font-size: 7pt;
+        }
+
+        #kochleitung, #Zutaten{
+        	width: 16.7em;
+        	height: 7em;
+            font-size: 7pt;
+        }
+        .save{
+            width: 15em;
+            height: 2em;
+        }
+}
