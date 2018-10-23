@@ -4,7 +4,8 @@
 
         let Standardrezepte = async () => {
             let recipes = new Recipes();
-            await recipes.clear();
+            let recipe =  await recipes.search();
+            console.log("Gespeicherte Rezepte:", recipe);
 
                 await Promise.all([
                     recipes.saveNew({
@@ -66,17 +67,21 @@
        window.addEventListener("click", windowOnClick);
     });
 
-    let deleteRecipe = (event) => {
+    let deleteRecipe = async (event) => {
         // Angeklicktes <img>: evt.target
         // Click-Event nicht an übergeordnetes Element weiterreichen,
         // weil sonst das Rezept aufgerufen werden würde
         event.stopPropagation();
         // Soll das Rezept wirklich gelöscht werden?
         if (confirm("Möcheten Sie das Rezept wirklich löschen?") == true) {
-        // id des zu löschendem Rezept holen
-        let id = event.target.parentNode.parentNode.getAttribute("id");
-        // Raushauen
-        recipes.delete(id);
+            // id des zu löschendem Rezept holen
+            let id = event.target.parentNode.parentNode.getAttribute("id");
+            // Raushauen
+            let recipes = new Recipes();
+            recipes.delete(id);
+            //Is das Rezept gelöscht?
+            let recipe =  await recipes.search();
+            console.log("Gespeicherte Rezepte:", recipe);
         }else {
             //mach nix :)
         }
