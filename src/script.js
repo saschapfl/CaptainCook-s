@@ -98,8 +98,9 @@
           dropdown.classList.remove("hidden");
 
           //Eingabefeld holen und je nach Bild Wert anpassen
+          source = source.childNodes;
           let input = document.querySelector("#Suche");
-          let image = source.getAttribute("src");
+          let image = source[0].getAttribute("src");
           let recipe = "";
           switch(image){
             case "schnelle_Rezepte.jpg":
@@ -163,8 +164,9 @@
 
        //Das gewünschte Rezept initialisieren
        let id = event.currentTarget.getAttribute("id");
+       let rezeptname = event.currentTarget.childNodes[3].innerHTML;
 
        //In Suchleiste aktuellen Rezeptnamen eintragen
        let input = document.querySelector("#Suche");
-       input.setAttribute("value", );
+       input.setAttribute("value", rezeptname);
     }
