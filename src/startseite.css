@@ -4,7 +4,8 @@
 main {
         justify-content: center;
         align-items: center;
-        display: block;
+        display: flex;
+        flex-direction: column;
         margin:auto;
         font-size: 150%;
         font-family: verdana;
