@@ -76,7 +76,7 @@
         // id des zu löschendem Rezept holen
         let id = event.target.parentNode.parentNode.getAttribute("id");
         // Raushauen
-        database.recipes.delete(id);
+        recipes.delete(id);
         }else {
             //mach nix :)
         }
