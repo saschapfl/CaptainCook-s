@@ -110,7 +110,7 @@
             break;
             case "alle_Rezepte.jpg":
             input.setAttribute("value", "Alle Rezepte");
-             recipe =  await recipes.search("Alle Rezepte");
+             recipe =  await recipes.search();
             break;
             case "scharfe_Rezepte.jpg":
             input.setAttribute("value", "Scharfe Rezepte");
