@@ -5,7 +5,7 @@
 // Datenbankdefinition:
 //
 //   * ++id = Automatisch Hochgezählter Datenbankschlüssel
-//   * artist, title = Indexfelder für WHERE-Abfragen und die Sortierung
+//   * recipename, picture, etc. = Indexfelder für WHERE-Abfragen und die Sortierung
 //   * Alle anderen Felder müssen nicht deklariert werden!
 //   * Vgl. http://dexie.org/docs/API-Reference
 let database = new Dexie("CaptainCook");
@@ -15,8 +15,8 @@ database.version(1).stores({
 });
 
 /**
- * Datenbankzugriffsklasse für Songtexte. Diese Klasse bietet verschiedene
- * Methoden, um Songtexte zu speichern und wieder auszulesen. Im Hintergrund
+ * Datenbankzugriffsklasse für Rezepte. Diese Klasse bietet verschiedene
+ * Methoden, um Rezepte zu speichern und wieder auszulesen. Im Hintergrund
  * wird hierfür Dexie zur lokalen Speicherung im Browser genutzt.
  */
 class Recipes {
@@ -33,7 +33,6 @@ class Recipes {
             description: "Kochbeschreibung",
             ingredients: "Zutaten",
      *     format: "html",
-     *     data: "HTML-String",
      * }
      *
      * @param  {Object}  recipe Zu speicherndes Rezept
@@ -43,7 +42,7 @@ class Recipes {
         return database.recipes.add(recipe);
     }
     /**
-     * Bereits vorhandenen Songtext aktualisieren.
+     * Bereits vorhandenes Rezept aktualisieren.
      * @param  {Object}  recipe Zu speicherndes Rezept
      * @return {Promise} Asynchrones Promise-Objekt
      */
@@ -52,7 +51,7 @@ class Recipes {
         return database.recipes.put(recipe);
     }
     /**
-     * Vorhandene Rezepte anhand seiner ID löschen.
+     * Vorhandene Rezepte anhand der jeweiligen ID löschen.
      * @param  {String}  id ID des zu löschenden Rezepts
      * @return {Promise} Asynchrones Promise-Objekt
      */
@@ -61,7 +60,7 @@ class Recipes {
     }
 
     /**
-     * Löscht alle Songtexte!
+     * Löscht alle Rezepte!
      * @return {Promise} Asynchrones Promise-Objekt
      */
     async clear() {
@@ -69,7 +68,7 @@ class Recipes {
     }
 
     /**
-     * Vorhandene Rezepte anhand seiner ID auslesen.
+     * Vorhandene Rezepte anhand der jeweiligen ID auslesen.
      * @param  {String}  id ID des zu lesenden Rezepts
      * @return {Promise} Asynchrones Promise-Objekt mit dem Rezept
      */
