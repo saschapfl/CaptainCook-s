@@ -1,11 +1,13 @@
-
+#Rezeptliste{
+  margin: auto;
+}
 #Rezeptliste > div{
     display: inline-block;
     font-size: 100%;
     position: relative;
     transition: 0.5s;
     margin: 0.5em;
-    width: 290px;
+    width: 280px;
     height: 150px;
 }
 #Rezeptliste > div:hover{
