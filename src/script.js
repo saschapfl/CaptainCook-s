@@ -196,3 +196,44 @@
          aktuelleSeite.innerHTML = "";
        }
     }
+
+    //Rezepte nach Alphabet sortieren
+    let sortbyA = async () => {
+        //Datenbank initialisieren
+        recipes = new Recipes();
+        //Wert aus Inputfeld auslesen
+        let input = document.querySelector("#Suche").value;
+        //Array befüllen mit Rezepten die aus der Kategorie entsprechen dessen Wert das Inputfeld hat
+        let sortiere = await recipes.search(input);
+        console.log("array Rezepte:", sortiere);
+        //Funktion um Objekte nach ihrem recipename zu sortieren
+            function compare (a,b){
+                const erstesR = a.recipename.toUpperCase();
+                const zweitesR = b.recipename.toUpperCase();
+
+                let comparison = 0;
+                if (erstesR > zweitesR){
+                    comparison = 1;
+                } else if (erstesR < zweitesR){
+                    comparison = -1;
+                }
+
+                return comparison;
+            }
+            sortiere.sort(compare);
+            console.log("in schleife Rezepte:", sortiere);
+    }
+
+    //Rezept nach zuletzt hinzugefügt sortieren
+    let sortbyD = async () => {
+        //Datenbank initialisieren
+        recipes = new Recipes();
+        //Wert aus Inputfeld auslesen
+        let input = document.querySelector("#Suche").value;
+        //Array befüllen mit Rezepten die aus der Kategorie entsprechen dessen Wert das Inputfeld hat
+        let sortiere = await recipes.search(input);
+        //Funktion um Objekte nach ihrer Id umgekehrt zu Sortieren
+            sortiere.reverse();
+            
+            console.log("in schleife Rezepte:", sortiere);
+    }
