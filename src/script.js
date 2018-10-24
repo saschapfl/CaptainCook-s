@@ -1,7 +1,6 @@
 
 
     window.addEventListener("load", () => {
-
         let Standardrezepte = async () => {
             let recipes = new Recipes();
             let recipe =  await recipes.search();
@@ -61,10 +60,8 @@
             let id = event.target.parentNode.parentNode.getAttribute("id");
             // Raushauen
             let recipes = new Recipes();
-            recipes.delete(id);
+            recipes.delete(parseInt(id));
             //Is das Rezept gelöscht?
-            let recipe =  await recipes.search();
-            console.log("Gespeicherte Rezepte:", recipe);
         }else {
             //mach nix :)
         }
