@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="startseite.css" />
         <link rel = "stylesheet" href = "rezeptliste.css" />
         <link rel ="stylesheet" href = "Rezepte_hinzufügen.css" />
+        <link rel ="stylesheet" href = "rezept_anzeigen.css" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js"></script>
         <script src="script.js" ></script>
@@ -57,19 +58,9 @@
                    </table>
                </section>
             <section class = "hidden" id = "Rezept_anzeigen">
-                <table>
-                    <th>
-                        <img src="Bild passend zu Rezept!">
-                    </th>
-                    <th>
-                        <h3>Zutaten</h3>
-                    </th>
-                </table>
-
-                 <div>
-                     BeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielText
-                     BeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielTextBeispielText
-                 </div>
+                 <!-- Hier wird das Rezept_anzeigen mit Bild, Kochanleitung und
+                      Zutaten zusammengebaut. Dies erfolgt durch JavaScript!
+                 -->
             </section>
             <section class = "hidden" id = "Rezeptliste">
               <!-- In diese Section wird eine Auflistung von Rezepten
@@ -97,7 +88,7 @@
                                 <th>
                                     <form>
                                         <label for="Name_hinzuf&uuml;gen">
-                                            <input id="rname" name="rname" placeholder ="Rezeptname hinzufuegen">
+                                            <input id="rname" name="rname" placeholder ="Rezeptname hinzuf&uuml;gen">
                                         </label>
                                     </form>
                                 </th>
@@ -109,7 +100,7 @@
                                 <th>
                                     <form>
                                         <label for="Bildpfad_hinzuf&uuml;gen">
-                                        <input id="bpfad" name="bpfad" placeholder ="Bildpfad hinzufuegen">
+                                        <input id="bpfad" name="bpfad" placeholder ="Bildpfad hinzuf&uuml;gen">
                                         </label>
                                     </form>
                                 </th>
@@ -121,7 +112,14 @@
                                 <th>
                                     <form>
                                         <label for="Kategorie_hinzuf&uuml;gen">
-                                        <input id="kat" name="kat" placeholder ="Kategorie eingeben">
+                                            <select id ="kat">
+                                                <option>Kategorie auswählen...</option>
+                                                <option>Vegetarische Rezepte</option>
+                                                <option>Mediterrane Rezepte</option>
+                                                <option>Pizza und Pasta</option>
+                                                <option>Scharfe Rezepte</option>
+                                                <option>Schnelle Rezepte</option>
+                                            </select>
                                         </label>
                                     </form>
                                 </th>
@@ -158,8 +156,5 @@
                 </div>
             </section>
         </main>
-        <footer>
-           <p> Authors: Sascha Pflittner, Viktoria Swidersky, Sven Zelinka</p>
-        </footer>
     </body>
 </html>
