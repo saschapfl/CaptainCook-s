@@ -30,6 +30,24 @@
        // Dexie
        let addRecipe = async () => {
         let recipes = new Recipes();
+        if(document.querySelector("#rname").value=="" ||
+        document.querySelector("#bpfad").value == "" ||
+        document.querySelector("#kat").value == "" ||
+        document.querySelector("#kochleitung").value == "" ||
+        document.querySelector("#Zutaten").value == ""){
+            // div holen in das die Fehlermeldung soll
+            let div = document.querySelector("#fehler");
+            // Prüfen ob Pflichtfelder Inhalt haben!
+            if (div.childNodes.length == 0 ){
+                fehler = document.createElement("p");
+                fehler.textContent = "Bitte füllen sie alle Eingabefelder aus!";
+                fehler.style.color = "darkred";
+                fehler.style.fontSize = "13pt";
+                fehler.style.marginBottom = "0.2em";
+                fehler.style.fontWeight = "bolt";
+                div.appendChild(fehler);
+            }
+        } else {
         recipes.saveNew({
             recipename: document.querySelector("#rname").value,
             picture: document.querySelector("#bpfad").value,
@@ -37,16 +55,13 @@
             description: document.querySelector("#kochleitung").value,
             ingredients: document.querySelector("#Zutaten").value,
             format: "html",
-
-
-
-        })
-        let modal = document.querySelector(".modal")
-        modal.classList.toggle("show-modal");
-        let recipe =  await recipes.search();
-        console.log("Gespeicherte Rezepte:", recipe);
+            })
+            let modal = document.querySelector(".modal")
+            modal.classList.toggle("show-modal");
+            let recipe =  await recipes.search();
+            console.log("Gespeicherte Rezepte:", recipe);
+        }
        }
-
        trigger.addEventListener("click", toggleModal);
        closeButton.addEventListener("click", toggleModal);
        saveButton.addEventListener("click", addRecipe);
