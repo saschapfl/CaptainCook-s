@@ -155,14 +155,18 @@
           rezepte_erstellen(recipe);
         }
 
+    //Funktion, wenn man auf das CapatinCook Logo klickt wieder zurück auf die Startseite kommt
     let backtoHome = () =>{
+        //zuerst die aktive Klasse raussuchen und ihr wieder die Klassen hidden geben
         let activClass = document.querySelector(".active");
         activClass.classList.remove("active");
         activClass.classList.add("hidden");
 
+        //der Dropdown Box auch die Klasse hidden geben
         let dropdown = document.querySelector("#dropdown");
         dropdown.classList.add("hidden");
 
+        //der Startseite wieder die Klasse active geben
         let Startseite = document.querySelector("#Startseite");
         Startseite.classList.remove("hidden");
         Startseite.classList.add("active");
@@ -216,13 +220,16 @@
 
        // Datenbank holen
        let recipe = new Recipes();
+
        // aktuelles Rezept holen
        let aktuelles_Rezept = recipe.getById(parseInt(id));
 
        // Values aus dem Promise-Objekt holen
        aktuelles_Rezept.then(function(result) {
+
          // Section holen
          let Rezeptansicht = document.querySelector("#Rezept_anzeigen");
+
          // div für Zutaten aus Datenbank erstellen
          let zutaten = document.createElement("div");
          zutaten.textContent = result["ingredients"];
@@ -290,18 +297,24 @@
 
     //Rezepte nach Alphabet sortieren
     let sortbyA = async () => {
+
         //Datenbank initialisieren
         recipes = new Recipes();
-        //Wert aus Inputfeld auslesen
-        let input = document.querySelector("#Suche").value;
 
+        //Platzhalter aus Inputfeld auslesen
+        let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
+
+        //Auswählen, welche Kategorie gesucht werden muss
+        placeholder = placeholder_switch(placeholder);
 
         //Array befüllen mit Rezepten die aus der Kategorie entsprechen dessen Wert das Inputfeld hat
         let sortiere = await recipes.search(input);
 
+        //wenn man sich auf der Kategegorie alle Rezepte befindet werden alle Rezepte in sortiere geschrieben
         if( input === "Alle Rezepte"){
             sortiere = await recipes.search();
         }
+        else{
         //Funktion um Objekte nach ihrem recipename zu sortieren
             function compare (a,b){
                 const erstesR = a.recipename.toUpperCase();
@@ -319,19 +332,29 @@
 
                 return comparison;
             }
-            sortiere.sort(compare);
-            rezepte_erstellen(sortiere);
+        }
+
+        sortiere.sort(compare);
+        //stellt Rezepte dar
+        rezepte_erstellen(sortiere);
 
     }
 
     //Rezept nach zuletzt hinzugefügt sortieren
     let sortbyD = async () => {
+
         //Datenbank initialisieren
         recipes = new Recipes();
-        //Wert aus Inputfeld auslesen
-        let input = document.querySelector("#Suche").value;
+
+        //Platzhalter aus Inputfeld auslesen
+        let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
+
+        //Auswählen, welche Kategorie gesucht werden muss
+        placeholder = placeholder_switch(placeholder);
+
         //Array befüllen mit Rezepten die aus der Kategorie entsprechen dessen Wert das Inputfeld hat
         let sortiere = await recipes.search(input);
+
         //Funktion um Objekte nach ihrer Id umgekehrt zu Sortieren
         if( input === "Alle Rezepte"){
             sortiere = await recipes.search();
@@ -382,7 +405,6 @@
     };
 
     //Function für die Suchleiste dass nur die Begriffe angezeigt werden die eingegeben wurden
-
     let suche = () => {
         let input = document.querySelector("#Suche").value;
         let activeClass = document.querySelector(".active");
@@ -416,3 +438,29 @@
             }
         }
     };
+
+    // Placeholder je nach Kategorie anderen Wert zuweisen
+    let placeholder_switch = (placehold) =>{
+        let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
+
+        switch(placeholder){
+          case "Schnelle Rezepte...":
+           input = "Schnelle Rezepte";
+          break;
+          case "Vegetarische Rezepte...":
+            input = "Vegetarische Rezepte";
+          break;
+          case "Mediterrane Rezepte...":
+            input = "Mediterrane Rezepte";
+          break;
+          case "Pizza und Pasta...":
+           input = ("Pizza und Pasta");
+          break;
+          case "Alle Rezepte...":
+            input = "";
+          break;
+          case "Scharfe Rezepte...":
+            input = "Scharfe Rezepte";
+          break;
+        }
+    }
