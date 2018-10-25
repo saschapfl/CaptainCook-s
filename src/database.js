@@ -11,7 +11,7 @@
 let database = new Dexie("CaptainCook");
 
 database.version(1).stores({
-    recipes: "++id, recipename, picture, categorie, description,ingredients",
+    recipes: "++id, recipename, picture, categorie, description, ingredients",
 });
 
 /**
