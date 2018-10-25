@@ -16,7 +16,7 @@
 
        //Suchfunktion
        let suche = document.querySelector("#Suche");
-       suche.addEventListener("enter", myFunction);
+       suche.addEventListener("enter", suche);
 
        // Zum öffnen un schließen
        let toggleModal = () =>{
@@ -54,6 +54,8 @@
     });
 
     let deleteRecipe = async (event) => {
+        let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
+
         // Angeklicktes <img>: evt.target
         // Click-Event nicht an übergeordnetes Element weiterreichen,
         // weil sonst das Rezept aufgerufen werden würde
@@ -66,6 +68,38 @@
             let recipes = new Recipes();
             recipes.delete(parseInt(id));
             //Is das Rezept gelöscht?
+
+            let active = document.querySelector("#Rezeptliste");
+            active.innerHTML = "";
+            let recipe = "";
+
+
+            switch(placeholder){
+              case "Schnelle Rezepte...":
+               recipe =  await recipes.search("Schnelle Rezepte");
+              break;
+              case "Vegetarische Rezepte...":
+
+               recipe =  await recipes.search("Vegetarische Rezepte");
+              break;
+              case "Mediterrane Rezepte...":
+
+               recipe =  await recipes.search("Mediterrane Rezepte");
+              break;
+              case "Pizza und Pasta...":
+
+               recipe =  await recipes.search("Pizza und Pasta");
+              break;
+              case "Alle Rezepte...":
+
+               recipe =  await recipes.search();
+              break;
+              case "Scharfe Rezepte...":
+
+               recipe =  await recipes.search("Scharfe Rezepte");
+              break;
+            }
+            rezepte_erstellen(recipe);
         }else {
             //mach nix :)
         }
@@ -94,27 +128,27 @@
           let recipe = "";
           switch(image){
             case "schnelle_Rezepte.jpg":
-            input.setAttribute("value", "Schnelle Rezepte");
+            input.setAttribute("placeholder", "Schnelle Rezepte...");
              recipe =  await recipes.search("Schnelle Rezepte");
             break;
             case "vegetarische_Rezepte.jpg":
-            input.setAttribute("value", "Vegetarische Rezepte");
+            input.setAttribute("placeholder", "Vegetarische Rezepte...");
              recipe =  await recipes.search("Vegetarische Rezepte");
             break;
             case "mediterrane_Rezepte.jpg":
-            input.setAttribute("value", "Mediterrane Rezepte");
+            input.setAttribute("placeholder", "Mediterrane Rezepte...");
              recipe =  await recipes.search("Mediterrane Rezepte");
             break;
             case "Pizza_Pasta.jpg":
-            input.setAttribute("value", "Pizza und Pasta");
+            input.setAttribute("placeholder", "Pizza und Pasta...");
              recipe =  await recipes.search("Pizza und Pasta");
             break;
             case "alle_Rezepte.jpg":
-            input.setAttribute("value", "Alle Rezepte");
+            input.setAttribute("placeholder", "Alle Rezepte...");
              recipe =  await recipes.search();
             break;
             case "scharfe_Rezepte.jpg":
-            input.setAttribute("value", "Scharfe Rezepte");
+            input.setAttribute("placeholder", "Scharfe Rezepte...");
              recipe =  await recipes.search("Scharfe Rezepte");
             break;
           }
@@ -135,7 +169,8 @@
 
         //Wert der Suchleiste zurücksetzen
         let input = document.querySelector("#Suche");
-        input.setAttribute("value", "");
+        input.value = "";
+        input.setAttribute("placeholder", "Suche...");
 
         //Inhalt der Listenansicht löschen
         if(activClass.getAttribute("id") === "Rezeptliste"){
@@ -191,9 +226,12 @@
                 const zweitesR = b.recipename.toUpperCase();
 
                 let comparison = 0;
+                //Tauscht sie bei eins
                 if (erstesR > zweitesR){
                     comparison = 1;
-                } else if (erstesR < zweitesR){
+                }
+                //Tauscht nicht bei -1
+                else if (erstesR < zweitesR){
                     comparison = -1;
                 }
 
@@ -263,23 +301,36 @@
 
     //Function für die Suchleiste dass nur die Begriffe angezeigt werden die eingegeben wurden
 
-    function myFunction() {
-        recipes = new Recipes();
+    let suche = () => {
+        let input = document.querySelector("#Suche").value;
+        let activeClass = document.querySelector(".active");
+        let name = "";
+        if ( activeClass.getAttribute("id") === "Startseite" ){
+            let recipe = new Recipes();
+            let allrecipes = recipe.search(input);
+            allrecipes.then(function(result){
+                rezepte_erstellen(result);
+            })
 
-    // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('Suche');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+            let Startseite = document.querySelector("#Startseite");
+            Startseite.classList.remove("active");
+            Startseite.classList.add("hidden");
+            let Rezeptliste = document.querySelector("#Rezeptliste");
+            Rezeptliste.classList.remove("hidden");
+            Rezeptliste.classList.add("active");
         }
-    }
-}
+        else {
+            let rezeptesammlung = activeClass.childNodes;
+
+            for(let i = 0; i < rezeptesammlung.length;i++){
+                name = rezeptesammlung[i].childNodes[1].innerHTML;
+                if( name.includes(input)){
+                    rezeptesammlung[i].style.display = "";
+                }
+                else {
+                    rezeptesammlung[i].style.display = "none";
+                }
+
+            }
+        }
+    };
