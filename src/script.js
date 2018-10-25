@@ -172,6 +172,15 @@
         input.value = "";
         input.setAttribute("placeholder", "Suche...");
 
+        // Suchleiste sichtbar machen
+        let Suchleiste = document.querySelector("#Suche");
+        Suchleiste.classList.remove("hidden");
+
+        //Hinzufügen-Button sichtbar machen
+        let hinzufügen = document.querySelector("#Neu");
+        hinzufügen.classList.remove("hidden");
+
+
         //Inhalt der Listenansicht löschen
         if(activClass.getAttribute("id") === "Rezeptliste"){
           activClass.innerHTML = "";
@@ -199,6 +208,82 @@
        //In Suchleiste aktuellen Rezeptnamen eintragen
        let input = document.querySelector("#Suche");
        input.setAttribute("value", rezeptname);
+
+       // Suchleiste unsichtbar machen
+       let Suchleiste = document.querySelector("#Suche");
+       Suchleiste.classList.add("hidden");
+
+       //Hinzufügen-Button unsichtbar machen
+       let hinzufügen = document.querySelector("#Neu");
+       hinzufügen.classList.add("hidden");
+
+       // Datenbank holen
+       let recipe = new Recipes();
+       // aktuelles Rezept holen
+       let aktuelles_Rezept = recipe.getById(parseInt(id));
+
+       // Values aus dem Promise-Objekt holen
+       aktuelles_Rezept.then(function(result){
+         // Section holen
+         let Rezeptansicht = document.querySelector("#Rezept_anzeigen");
+         // div für Zutaten aus Datenbank erstellen
+         let zutaten = document.createElement("div");
+         zutaten.textContent = result["ingredients"];
+
+         // Rezept anzeige
+         let rezept = document.createElement("div");
+         rezept.setAttribute("id", result["id"]);
+
+         // Bild
+         let bild = document.createElement("img");
+         let pfad = "file:///" + result["picture"];
+         bild.setAttribute("src", pfad);
+
+         //In Suchleiste aktuellen Rezeptnamen eintragen
+         let input = document.querySelector("#Suche");
+         input.setAttribute("value", rezeptname);
+
+         // Tabelle erstellen
+         let tabelle = document.createElement("table");
+         tabelle.setAttribute("class","tabelle_rezeptliste");
+         // Zeile erstellen
+         let tr = document.createElement("tr");
+         // Spalte erstellen
+         let td1 = document.createElement("td");
+         let td2 = document.createElement("td");
+
+         // p erstellen
+         let p1 = document.createElement("p");
+         p1.textContent = "Zutaten:";
+
+         // p2 Anleitung erstellen
+         let p2 = document.createElement("div");
+         p2.textContent = "Kochanleitung:"
+
+         // div für Kochanleitung erstellen
+         let anleitungsbox = document.createElement("div");
+         anleitungsbox.setAttribute("id","anleitungsbox");
+
+         // p für Kochanleitung erstellen und mit Daten aus db füllen
+         let anleitung = document.createElement("div")
+         anleitung.setAttribute("id","kochanleitung");
+         anleitung.textContent = result["description"];
+
+         // dranhängen
+         td1.appendChild(bild);
+         td2.appendChild(p1);
+         td2.appendChild(zutaten);
+         tr.appendChild(td1);
+         tr.appendChild(td2);
+         tabelle.appendChild(tr);
+         rezept.appendChild(tabelle);
+         anleitungsbox.appendChild(p2);
+         anleitungsbox.appendChild(anleitung);
+
+         // Section Tabelle und Div übergeben
+         Rezeptansicht.appendChild(rezept);
+         Rezeptansicht.appendChild(anleitungsbox);
+      });
 
        //Inhalt der Listenansicht löschen
        if(aktuelleSeite.getAttribute("id") === "Rezeptliste"){
