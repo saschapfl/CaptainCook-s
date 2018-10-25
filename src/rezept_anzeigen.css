@@ -1,0 +1,47 @@
+.tabelle_rezeptliste td, tr{
+    margin: auto;
+    width: 50%;
+    font-size: 10pt;
+    font-family: arial;
+    text-align: center;
+    position: relative;
+}
+
+.tabelle_rezeptliste > tr > td > p {
+    font-size: 20pt;
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+}
+
+.tabelle_rezeptliste {
+    width: 50em;
+}
+
+#Rezept_anzeigen > div {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+#kochanleitung {
+    font-size: 12pt;
+    font-family: arial;
+    text-align: left;
+}
+
+.tabelle_rezeptliste > tr > td > img {
+    width: 50%;
+}
+
+.tabelle_rezeptliste > tr > td > div {
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    font-size: 12pt;
+}
+
+#anleitungsbox{
+    position:relative;
+}
