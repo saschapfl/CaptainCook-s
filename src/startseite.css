@@ -85,14 +85,14 @@ main {
       width: 41.16px;
       position: relative;
     }
-    td {
+    #Startseite td {
         height: 393.667px;
         width: 524.333px;
         position: relative;
         padding: 0;
         transition: 0.5s;
     }
-    td:hover{
+    #Startseite td:hover{
       transform: scale(1.1);
       cursor: pointer;
       color: blue;
