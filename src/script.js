@@ -14,6 +14,10 @@
        let closeButton = document.querySelector(".close-button");
        let saveButton = document.querySelector(".save");
 
+       //Suchfunktion
+       let suche = document.querySelector("#Suche");
+       suche.addEventListener("enter", myFunction);
+
        // Zum öffnen un schließen
        let toggleModal = () =>{
               modal.classList.toggle("show-modal");
@@ -114,37 +118,7 @@
              recipe =  await recipes.search("Scharfe Rezepte");
             break;
           }
-          for(let i = 0; i < recipe.length; i++){
-            let aktuelles_Rezept = recipe[i];
-            let Rezeptbereich = document.createElement("div");
-            Rezeptbereich.setAttribute("id", aktuelles_Rezept["id"]);
-
-            //Bild erstellen und einfügen
-            let Bild = document.createElement("img");
-            Bild.setAttribute("src", aktuelles_Rezept["picture"]);
-            Rezeptbereich.appendChild(Bild);
-            //Beschriftung erstellen und einfügen
-            let Beschriftung = document.createElement("span");
-            Beschriftung.textContent = aktuelles_Rezept["recipename"];
-            Beschriftung.setAttribute("class", "Beschriftung");
-            Rezeptbereich.appendChild(Beschriftung);
-            //Löschen-Beschriftung erstellen und Klassennamen für CSS setzen
-            Beschriftung = document.createElement("span");
-            Beschriftung.setAttribute("class", "Löschen");
-            //Löschen-Icon erstellen, klickbar machen und an Löschen-Beschriftung hängen
-            Bild = document.createElement("img");
-            Bild.setAttribute("src", "deleteIcon.png");
-            Bild.addEventListener("click", deleteRecipe);
-            Beschriftung.appendChild(Bild);
-            //Beschriftung inclusive Löschen-Icon an Rezeptbereich hängen
-            Rezeptbereich.appendChild(Beschriftung);
-            //Rezeptbereich in Section einfügen
-            Rezeptliste.appendChild(Rezeptbereich);
-          }
-          let rezepte = Rezeptliste.childNodes;
-          for(let i = 0; i < rezepte.length;i++){
-            rezepte[i].addEventListener("click", switchtoRecipe);
-          }
+          rezepte_erstellen(recipe);
         }
 
     let backtoHome = () =>{
@@ -203,9 +177,14 @@
         recipes = new Recipes();
         //Wert aus Inputfeld auslesen
         let input = document.querySelector("#Suche").value;
+
+
         //Array befüllen mit Rezepten die aus der Kategorie entsprechen dessen Wert das Inputfeld hat
         let sortiere = await recipes.search(input);
-        console.log("array Rezepte:", sortiere);
+
+        if( input === "Alle Rezepte"){
+            sortiere = await recipes.search();
+        }
         //Funktion um Objekte nach ihrem recipename zu sortieren
             function compare (a,b){
                 const erstesR = a.recipename.toUpperCase();
@@ -221,7 +200,8 @@
                 return comparison;
             }
             sortiere.sort(compare);
-            console.log("in schleife Rezepte:", sortiere);
+            rezepte_erstellen(sortiere);
+
     }
 
     //Rezept nach zuletzt hinzugefügt sortieren
@@ -233,7 +213,73 @@
         //Array befüllen mit Rezepten die aus der Kategorie entsprechen dessen Wert das Inputfeld hat
         let sortiere = await recipes.search(input);
         //Funktion um Objekte nach ihrer Id umgekehrt zu Sortieren
+        if( input === "Alle Rezepte"){
+            sortiere = await recipes.search();
+        }
             sortiere.reverse();
-            
-            console.log("in schleife Rezepte:", sortiere);
+            rezepte_erstellen(sortiere);
+
+
     }
+
+    //Function um Rezepte anzuzeigen
+    let rezepte_erstellen = (rezeptsammlung) => {
+
+        let rezeptliste = document.querySelector("#Rezeptliste");
+        rezeptliste.innerHTML = "";
+
+        for(let i = 0; i < rezeptsammlung.length; i++){
+          let aktuelles_Rezept = rezeptsammlung[i];
+          let Rezeptbereich = document.createElement("div");
+          Rezeptbereich.setAttribute("id", aktuelles_Rezept["id"]);
+
+          //Bild erstellen und einfügen
+          let Bild = document.createElement("img");
+          Bild.setAttribute("src", aktuelles_Rezept["picture"]);
+          Rezeptbereich.appendChild(Bild);
+          //Beschriftung erstellen und einfügen
+          let Beschriftung = document.createElement("span");
+          Beschriftung.textContent = aktuelles_Rezept["recipename"];
+          Beschriftung.setAttribute("class", "Beschriftung");
+          Rezeptbereich.appendChild(Beschriftung);
+          //Löschen-Beschriftung erstellen und Klassennamen für CSS setzen
+          Beschriftung = document.createElement("span");
+          Beschriftung.setAttribute("class", "Löschen");
+          //Löschen-Icon erstellen, klickbar machen und an Löschen-Beschriftung hängen
+          Bild = document.createElement("img");
+          Bild.setAttribute("src", "deleteIcon.png");
+          Bild.addEventListener("click", deleteRecipe);
+          Beschriftung.appendChild(Bild);
+          //Beschriftung inclusive Löschen-Icon an Rezeptbereich hängen
+          Rezeptbereich.appendChild(Beschriftung);
+          //Rezeptbereich in Section einfügen
+          Rezeptliste.appendChild(Rezeptbereich);
+        }
+        let rezepte = Rezeptliste.childNodes;
+        for(let i = 1; i < rezepte.length;i++){
+          rezepte[i].addEventListener("click", switchtoRecipe);
+        }
+    };
+
+    //Function für die Suchleiste dass nur die Begriffe angezeigt werden die eingegeben wurden
+
+    function myFunction() {
+        recipes = new Recipes();
+
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('Suche');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
