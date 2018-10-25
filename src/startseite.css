@@ -99,7 +99,7 @@ main {
     }
     .Kategorie{
       position: absolute;
-      top: 170px;
+      top: 160px;
       left: 0;
       width: 90.5%;
       margin-left: 24px;
@@ -111,7 +111,7 @@ main {
       background-color: rgba(0,0,0,0.3);
       font-family: sans-serif;
       color: white;
-      font-size: auto;
+      font-size: 30px;
     }
 
     .hidden {
