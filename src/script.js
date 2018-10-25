@@ -220,7 +220,7 @@
        let aktuelles_Rezept = recipe.getById(parseInt(id));
 
        // Values aus dem Promise-Objekt holen
-       aktuelles_Rezept.then(let res = (result) => {
+       aktuelles_Rezept.then(function(result) {
          // Section holen
          let Rezeptansicht = document.querySelector("#Rezept_anzeigen");
          // div für Zutaten aus Datenbank erstellen
@@ -280,7 +280,7 @@
          // Section Tabelle und Div übergeben
          Rezeptansicht.appendChild(rezept);
          Rezeptansicht.appendChild(anleitungsbox);
-      });
+     });
 
        //Inhalt der Listenansicht löschen
        if(aktuelleSeite.getAttribute("id") === "Rezeptliste"){
@@ -390,9 +390,9 @@
         if ( activeClass.getAttribute("id") === "Startseite" ){
             let recipe = new Recipes();
             let allrecipes = recipe.search(input);
-            allrecipes.then(let res = (result) => {
+            allrecipes.then(function(result) {
                 rezepte_erstellen(result);
-            })
+            });
 
             let Startseite = document.querySelector("#Startseite");
             Startseite.classList.remove("active");
