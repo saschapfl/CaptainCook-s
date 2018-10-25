@@ -180,11 +180,8 @@
         let hinzufügen = document.querySelector("#Neu");
         hinzufügen.classList.remove("hidden");
 
-
-        //Inhalt der Listenansicht löschen
-        if(activClass.getAttribute("id") === "Rezeptliste"){
-          activClass.innerHTML = "";
-        }
+        // Die Seite von der aus Home gedrückt wird, wird gecleared
+        activClass.innerHTML ="";
     }
 
 
@@ -379,7 +376,7 @@
           Rezeptliste.appendChild(Rezeptbereich);
         }
         let rezepte = Rezeptliste.childNodes;
-        for(let i = 1; i < rezepte.length;i++){
+        for(let i = 0; i < rezepte.length;i++){
           rezepte[i].addEventListener("click", switchtoRecipe);
         }
     };
