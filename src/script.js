@@ -220,7 +220,7 @@
        let aktuelles_Rezept = recipe.getById(parseInt(id));
 
        // Values aus dem Promise-Objekt holen
-       aktuelles_Rezept.then(function(result){
+       aktuelles_Rezept.then(let res = (result) => {
          // Section holen
          let Rezeptansicht = document.querySelector("#Rezept_anzeigen");
          // div für Zutaten aus Datenbank erstellen
@@ -390,7 +390,7 @@
         if ( activeClass.getAttribute("id") === "Startseite" ){
             let recipe = new Recipes();
             let allrecipes = recipe.search(input);
-            allrecipes.then(function(result){
+            allrecipes.then(let res = (result) => {
                 rezepte_erstellen(result);
             })
 
