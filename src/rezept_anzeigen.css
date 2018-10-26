@@ -15,14 +15,23 @@
     left: 0;
 }
 
+.tabelle_rezeptliste > tr > td > div {
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    font-size: 12pt;
+}
+
 .tabelle_rezeptliste {
     width: 50em;
 }
 
 #Rezept_anzeigen > div {
-    justify-content: center;
-    display: flex;
+    justify-content: left;
+    display: inherit;
     align-items: center;
+    width: 1200px;
+    overflow: hidden;
 }
 
 #kochanleitung {
@@ -35,13 +44,36 @@
     width: 50%;
 }
 
-.tabelle_rezeptliste > tr > td > div {
-    position: absolute;
-    top: 30%;
-    left: 0%;
-    font-size: 12pt;
+#anleitungsbox{
+    margin-top: 0.5em;
 }
 
-#anleitungsbox{
-    position:relative;
+#anleitungsbox > p {
+    font-size: 20pt;
+    font-family: arial;
+    font-weight: bold;
 }
+
+@media (max-device-width: 480px) {
+    .tabelle_rezeptliste {
+        width: 300px;
+    }
+
+    #Rezept_anzeigen > div {
+        width: 300px;
+    }
+
+    #anleitungsbox > p {
+        font-size: 10pt;
+    }
+    .tabelle_rezeptliste > tr > td > p {
+        font-size: 10pt;
+    }
+    .tabelle_rezeptliste > tr > td > div {
+        margin-top: 0.5em;
+        font-size: 8pt;
+    }
+
+    #kochanleitung {
+        font-size: 8pt;
+    }
