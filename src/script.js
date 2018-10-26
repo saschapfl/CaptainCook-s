@@ -21,6 +21,8 @@
        // Zum öffnen un schließen
        let toggleModal = () =>{
               modal.classList.toggle("show-modal");
+              fehler = document.querySelector("#fehler")
+              fehler.innerHTML ="";
        }
        let windowOnClick = (event) =>{
            if (event.target === modal) {
@@ -31,8 +33,6 @@
        let addRecipe = async () => {
         let recipes = new Recipes();
         if(document.querySelector("#rname").value=="" ||
-        document.querySelector("#bpfad").value == "" ||
-        document.querySelector("#kat").value == "" ||
         document.querySelector("#kochleitung").value == "" ||
         document.querySelector("#Zutaten").value == ""){
             // div holen in das die Fehlermeldung soll
@@ -41,6 +41,7 @@
             if (div.childNodes.length == 0 ){
                 fehler = document.createElement("p");
                 fehler.textContent = "Bitte füllen sie alle Eingabefelder aus!";
+                fehler.setAttribute("id","fehler");
                 fehler.style.color = "darkred";
                 fehler.style.fontSize = "13pt";
                 fehler.style.marginBottom = "0.2em";
@@ -59,6 +60,11 @@
                 modal.classList.toggle("show-modal");
                 let recipe =  await recipes.search();
                 console.log("Gespeicherte Rezepte:", recipe);
+                document.querySelector("#rname").value = "";
+                document.querySelector("#bpfad").value = "";
+                document.querySelector("#kat").value = "Kategorie auswählen...";
+                document.querySelector("#kochleitung").value = "";
+                document.querySelector("#Zutaten").value = "";
             }
            }
        trigger.addEventListener("click", toggleModal);
