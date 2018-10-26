@@ -192,12 +192,11 @@ main {
      margin-right: 12px;
      text-align: center;
      border: 1px solid #ababab;
-     height: 1em;
-     line-height: 1em;
      background-color: rgba(0,0,0,0.3);
      font-family: sans-serif;
      color: white;
-     font-size: 9pt;
+     font-size: 10pt;
+     top: 0px;
 
   }
   .thumbnail{
@@ -220,5 +219,11 @@ main {
     position: absolute;
     top: 0;
     transition: 0s;
+  }
+  #Toolbar > ul{
+    margin-bottom: 0;
+  }
+  #Startseite tr {
+    position: inherit;
   }
 }
