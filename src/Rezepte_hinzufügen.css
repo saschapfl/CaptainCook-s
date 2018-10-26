@@ -89,7 +89,7 @@ h2 {
 
 @media (max-device-width: 480px) {
     .modal-content {
-            width: 15rem;
+            width: 15.5rem;
             height: 23rem;
         }
         h2 {
