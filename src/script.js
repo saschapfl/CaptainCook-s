@@ -47,18 +47,20 @@
                 div.appendChild(fehler);
             }
         } else {
-        recipes.saveNew({
-            recipename: document.querySelector("#rname").value,
-            picture: document.querySelector("#bpfad").value,
-            categorie: document.querySelector("#kat").value,
-            description: document.querySelector("#kochleitung").value,
-            ingredients: document.querySelector("#Zutaten").value,
-            format: "html",
-            })
-            let modal = document.querySelector(".modal")
-            modal.classList.toggle("show-modal");
-        }
-       }
+            recipes.saveNew({
+                recipename: document.querySelector("#rname").value,
+                picture: document.querySelector("#bpfad").value,
+                categorie: document.querySelector("#kat").value,
+                description: document.querySelector("#kochleitung").value,
+                ingredients: document.querySelector("#Zutaten").value,
+                format: "html",
+                })
+                let modal = document.querySelector(".modal")
+                modal.classList.toggle("show-modal");
+                let recipe =  await recipes.search();
+                console.log("Gespeicherte Rezepte:", recipe);
+            }
+           }
        trigger.addEventListener("click", toggleModal);
        closeButton.addEventListener("click", toggleModal);
        saveButton.addEventListener("click", addRecipe);
@@ -244,7 +246,7 @@
 
          // div für Zutaten aus Datenbank erstellen
          let zutaten = document.createElement("div");
-         zutaten.textContent = result["ingredients"];
+         zutaten.innerHTML = result["ingredients"].replace(/\n/gi,"<br>");
 
          // Rezept anzeige
          let rezept = document.createElement("div");
@@ -283,7 +285,7 @@
          // p für Kochanleitung erstellen und mit Daten aus db füllen
          let anleitung = document.createElement("div")
          anleitung.setAttribute("id","kochanleitung");
-         anleitung.textContent = result["description"];
+         anleitung.innerHTML = result["description"].replace(/\n/gi,"<br>");
 
          // dranhängen
          td1.appendChild(bild);
