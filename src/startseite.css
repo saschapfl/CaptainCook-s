@@ -1,6 +1,3 @@
-
-
-
 main {
         justify-content: center;
         align-items: center;
@@ -178,14 +175,14 @@ main {
  }
 
 @media (max-device-width: 480px) {
-  td {
+  #Startseite td {
       position: inherit;
       height: 100px;
       width: 200px;
       font-size: 12pt;
       top: 50px;
      }
-  .Kategorie{
+  #Startseite .Kategorie{
      position: inherit;
      width: 90.5%;
      margin-left: 12px;
@@ -204,7 +201,7 @@ main {
     margin: 0.5em;
     margin-bottom: 0;
   }
-  td:hover{
+  #Startseite td:hover{
     transform: none;
   }
   #Suche{
