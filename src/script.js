@@ -130,6 +130,10 @@
         }
     }
 
+    let editRecipe = async (source) =>{
+        source.stopPropagation();
+    }
+
     let switchtolist = async (source) =>{
           //Seite switchen
           let Startseite = document.querySelector("#Startseite");
@@ -419,6 +423,17 @@
           Bild.addEventListener("click", deleteRecipe);
           Beschriftung.appendChild(Bild);
           //Beschriftung inclusive Löschen-Icon an Rezeptbereich hängen
+          Rezeptbereich.appendChild(Beschriftung);
+
+          //Edit-Beschriftung erstellen und Klassennamen für CSS setzen
+          Beschriftung = document.createElement("span");
+          Beschriftung.setAttribute("class", "edit");
+          //Edit-Icon erstellen, klickbar machen und an Beschriftung dranhängen
+          Bild = document.createElement("img");
+          Bild.setAttribute("src", "edit.png");
+          Bild.addEventListener("click", editRecipe);
+          Beschriftung.appendChild(Bild);
+          //Edit Beschriftung in div einfügen
           Rezeptbereich.appendChild(Beschriftung);
           //Rezeptbereich in Section einfügen
           Rezeptliste.appendChild(Rezeptbereich);
