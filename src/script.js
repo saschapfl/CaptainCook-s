@@ -23,6 +23,11 @@
               modal.classList.toggle("show-modal");
               fehler = document.querySelector("#fehler")
               fehler.innerHTML ="";
+              document.querySelector("#rname").value = "";
+              document.querySelector("#bpfad").value = "";
+              document.querySelector("#kat").value = "Kategorie auswählen...";
+              document.querySelector("#kochleitung").value = "";
+              document.querySelector("#Zutaten").value = "";
        }
        let windowOnClick = (event) =>{
            if (event.target === modal) {
