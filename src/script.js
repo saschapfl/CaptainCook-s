@@ -44,7 +44,6 @@
                 fehler.style.color = "darkred";
                 fehler.style.fontSize = "13pt";
                 fehler.style.marginBottom = "0.2em";
-                fehler.style.fontWeight = "bolt";
                 div.appendChild(fehler);
             }
         } else {
@@ -58,8 +57,6 @@
             })
             let modal = document.querySelector(".modal")
             modal.classList.toggle("show-modal");
-            let recipe =  await recipes.search();
-            console.log("Gespeicherte Rezepte:", recipe);
         }
        }
        trigger.addEventListener("click", toggleModal);
@@ -275,8 +272,8 @@
          let p1 = document.createElement("p");
          p1.textContent = "Zutaten:";
 
-         // p2 Anleitung erstellen
-         let p2 = document.createElement("div");
+         // p2 Anleitungsüberschrift erstellen
+         let p2 = document.createElement("p");
          p2.textContent = "Kochanleitung:"
 
          // div für Kochanleitung erstellen
