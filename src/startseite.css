@@ -1,23 +1,23 @@
 
 main {
-        justify-content: center; /* Packe Flexelemente um die Mitte */
-        align-items: center; /* Elemente um die Kreuzungsachse zentrieren */
+        justify-content: center;
+        align-items: center;
         display: flex;
         flex-direction: column;
-        margin:auto; /*Element horizontal zenrtrieren*/
+        margin:auto;
         font-size: 150%;
         font-family: verdana;
     }
 
     header {
-        display: block; /*Block-Boxen nehmen die gesamte Breite des Elternelementes ein*/
+        display: block;
     }
 
     body {
         background-image: url("Hintergrund.jpg");
         background-repeat:no-repeat;
         background-size: cover;
-        background-attachment: fixed; /*fixiert das Hintergrundbild an einer festen Position im Browserfenster und erweckt beim Scrollen den Anschein, die folgenden Inhalte würden über das Hintergrundbild geschoben.*/
+        background-attachment: fixed; 
         overflow-x: hidden;
     }
 
