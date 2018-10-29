@@ -558,7 +558,7 @@
         }
     };
 
-    // Placeholder je nach Kategorie anderen Wert zuweisen
+    // Placeholder je nach Kategorie anderen Wert zuweisen!
     let placeholder_switch = (placehold) =>{
         let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
 
