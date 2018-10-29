@@ -21,19 +21,20 @@
            </section>
                <div id = "Toolbar">
                    <ul>
+                       <li> <section class="hidden" id = "dropdown">
+                           <div class="dropdown">
+                               <button onclick="select()" class="dropbtn">Sortierung</button>
+                               <div id="myDropdown" class="dropdown-content">
+                                   <a href="#" onclick = "sortbyA()">Alphabet</a>
+                                   <a href="#" onclick = "sortbyD()">Zuletzt hinzugefügt</a>
+                               </div>
+                           </div>
+                       </section></li>
                        <li><input type = "search" placeholder="Suche..." id = "Suche" onkeyup="suche()"></li>
                        <li id = "Neu_li"><img id = "Neu" src = "addIcon.png" class = "trigger"></li>
                    </ul>
                </div>
-               <section class="hidden" id = "dropdown">
-                   <div class="dropdown">
-                       <button onclick="select()" class="dropbtn">Sortierung</button>
-                       <div id="myDropdown" class="dropdown-content">
-                           <a href="#" onclick = "sortbyA()">Alphabet</a>
-                           <a href="#" onclick = "sortbyD()">Zuletzt hinzugefügt</a>
-                       </div>
-                   </div>
-               </section>
+
                <!--
                     2. Überschrift, die die ausgewählte Kategorie anzeigt
                     Wird in JavaScript abhängig von aktiver Seite erzeugt
