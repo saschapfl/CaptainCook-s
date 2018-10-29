@@ -1,25 +1,25 @@
+
 main {
-        justify-content: center;
-        align-items: center;
+        justify-content: center; /* Packe Flexelemente um die Mitte */
+        align-items: center; /* Elemente um die Kreuzungsachse zentrieren */
         display: flex;
         flex-direction: column;
-        margin:auto;
+        margin:auto; /*Element horizontal zenrtrieren*/
         font-size: 150%;
         font-family: verdana;
     }
 
     header {
-        display: block;
+        display: block; /*Block-Boxen nehmen die gesamte Breite des Elternelementes ein*/
     }
 
     body {
         background-image: url("Hintergrund.jpg");
         background-repeat:no-repeat;
         background-size: cover;
-        background-attachment: fixed;
+        background-attachment: fixed; /*fixiert das Hintergrundbild an einer festen Position im Browserfenster und erweckt beim Scrollen den Anschein, die folgenden Inhalte würden über das Hintergrundbild geschoben.*/
         overflow-x: hidden;
     }
-
 
 
     #Suche{
@@ -31,6 +31,7 @@ main {
         border-radius: 1em;
         padding: 0.5em;
     }
+
     #Toolbar{
       display: flex;
       align-items: center;
@@ -43,8 +44,8 @@ main {
     }
 
     #Neu{
-        width: 80%;
-        height: 80%;
+        width: 90%;
+        height: 90%;
         margin-top: 2.5%;
         position: absolute;
         top: 0.8em;
@@ -136,8 +137,14 @@ main {
     font-size: 90%;
     border: none;
     cursor: pointer;
-}
+    margin-top: 20.5%;
+    float:right;
+    margin-right: 20%;
 
+}
+    #drop_li{
+        position: relative;
+    }
     .dropbtn:hover, .dropbtn:focus {
         background-color: #2980B9;
     }
@@ -145,6 +152,8 @@ main {
     .dropdown {
         position: relative;
         display: inline-block;
+        margin-top: 2.5%;
+        margin-right: 20%;
     }
 
     .dropdown-content {
