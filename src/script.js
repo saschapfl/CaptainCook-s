@@ -523,14 +523,12 @@
     let suche = () => {
         let input = document.querySelector("#Suche").value;
         let activeClass = document.querySelector(".active");
+        let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
         let name = "";
-<<<<<<< HEAD
         //Wenn sich User auf Startseite befindet, alle Rezepte durchsuchen
-=======
         /*Wenn direkt auf der Startseite nach Rezepten gesucht wird, folgt anderer Suchalgorithmus:
           Es werden alle Rezepte aus der Datenbank mit dem Suchbegriff abgeglichen
           und die passenden Rezepte auf der Listenansicht-Seite dargestellt */
->>>>>>> f6b01ca1b384ecbfe4f08684d5a499292b3dbcbb
         if ( placeholder === "Suche..." ){
             let recipe = new Recipes();
             let allrecipes = recipe.search(input);
