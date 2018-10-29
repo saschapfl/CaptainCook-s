@@ -16,7 +16,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: white;
         padding: 1rem 1.5rem;
         width: 28rem;
         height: 36rem;
@@ -96,6 +95,9 @@ h2 {
     height: 2rem;
     width: 15.7rem;
 }
+#fehler {
+    font-size: 13pt;
+}
 .save {
     font-family: Bradley Hand;
     font-size: 12pt;
@@ -104,29 +106,40 @@ h2 {
 @media (max-device-width: 480px) {
     .modal-content {
             width: 15.5rem;
-            height: 23rem;
+            height: 25rem;
         }
         h2 {
-            font-size: 12pt;
+            font-size: 15pt;
         }
         .Tab_rez th{
             font-size: 8pt;
 
         }
-        #rname, #bpfad, #kat{
-            width: 10rem;
+        #rname, #bpfad{
+            width: 16.7em;
             height: 1rem;
             font-size: 7pt;
+            margin-right: 0.5rem;
+        }
+
+        #kat {
+            height: 1.5rem;
+            width: 15.3em;
+            margin-right: 0.2em;
         }
 
         #kochleitung, #Zutaten{
         	width: 16.7em;
         	height: 7em;
             font-size: 7pt;
+            margin-right: 0.2em;
         }
         .save{
             width: 15.7em;
             height: 2em;
             font-size: 8pt;
+        }
+        #fehler {
+            font-size: 9pt;
         }
 }
