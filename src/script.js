@@ -12,7 +12,8 @@
        let modal = document.querySelector(".modal");
        let trigger = document.querySelector(".trigger");
        let closeButton = document.querySelector(".close-button");
-       let saveButton = document.querySelector(".save");
+       let saveButton = document.querySelector("#save");
+
 
        //Suchfunktion
        let suche = document.querySelector("#Suche");
@@ -37,6 +38,7 @@
        // Dexie
        let addRecipe = async () => {
         let recipes = new Recipes();
+        let save = document.querySelector("#save");
         if(document.querySelector("#rname").value=="" ||
         document.querySelector("#kochleitung").value == "" ||
         document.querySelector("#Zutaten").value == ""){
@@ -131,7 +133,80 @@
     }
 
     let editRecipe = async (source) =>{
+
         source.stopPropagation();
+
+        let upd = document.querySelector("#update");
+        upd.classList.remove("hidden");
+        upd.classList.add("active");
+        let save = document.querySelector("#save");
+        save.classList.remove("active");
+        save.classList.add("hidden");
+        let id = source.target.parentNode.parentNode.getAttribute("id");
+        let recipe = new Recipes();
+        let aktuelles_Rezept = recipe.getById(parseInt(id));
+        aktuelles_Rezept.then(function(result){
+
+            //Input-Felder mit Daten aus der Datenbank befüllen
+            document.querySelector("#rname").value = result["recipename"];
+            //Feld ausgrauen
+            document.getElementById("rname").disabled = true;
+            document.querySelector("#bpfad").value = result["picture"];
+            //Feld ausgrauen
+            document.getElementById("bpfad").disabled = true;
+            document.querySelector("#kat").value = result["categorie"];
+            document.querySelector("#kochleitung").value = result["description"];
+            document.querySelector("#Zutaten").value = result["ingredients"];
+        });
+
+
+        let modal = document.querySelector(".modal");
+        modal.classList.toggle("show-modal");
+
+        //Nachdem der Button gedrückt wurde in Variablen die neuen Werte speichern
+        let update = (event) =>{
+            let i = source.target.parentNode.parentNode.getAttribute("id");
+            let a = document.querySelector("#rname").value
+            let b = document.querySelector("#bpfad").value
+            let c = document.querySelector("#kat").value
+            let d = document.querySelector("#kochleitung").value
+            let e = document.querySelector("#Zutaten").value
+
+            //In Input-Felder neue Werte eintragen
+             document.querySelector("#rname").value = a;
+             document.querySelector("#bpfad").value = b;
+             document.querySelector("#kat").value = c;
+             document.querySelector("#kochleitung").value = d;
+             document.querySelector("#Zutaten").value = e;
+
+             //In Datenbank neue Werte speichern
+             aktuelles_Rezept["id"] = i;
+             aktuelles_Rezept["recipename"] = a;
+             aktuelles_Rezept["picture"] = b;
+             aktuelles_Rezept["categorie"] = c;
+             aktuelles_Rezept["description"] = d;
+             aktuelles_Rezept["ingredients"] = e;
+
+             recipe.update({
+              id: `${i}`,
+              recipename: `${a}`,
+              picture: `${b}`,
+              categorie: `${c}`,
+              description: `${d}`,
+              ingredients: `${e}`,
+            })
+
+
+             document.getElementById("rname").disabled = false;
+             document.getElementById("bpfad").disabled = false;
+             upd.classList.remove("active");
+             upd.classList.add("hidden");
+             save.classList.remove("hidden");
+             save.classList.add("active");
+
+        }
+
+    upd.addEventListener("click", update);
     }
 
     let switchtolist = async (source) =>{
