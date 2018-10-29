@@ -523,8 +523,10 @@
     let suche = () => {
         let input = document.querySelector("#Suche").value;
         let activeClass = document.querySelector(".active");
+        let placeholder = document.querySelector("#Suche").getAttribute("placeholder");
         let name = "";
-        if ( activeClass.getAttribute("id") === "Startseite" ){
+        //Wenn sich User auf Startseite befindet, alle Rezepte durchsuchen
+        if ( placeholder === "Suche..." ){
             let recipe = new Recipes();
             let allrecipes = recipe.search(input);
             allrecipes.then(function(result) {
@@ -538,6 +540,8 @@
             Rezeptliste.classList.remove("hidden");
             Rezeptliste.classList.add("active");
         }
+        //Andernfalls nur die Rezepte der Kategorie nach Suchbegriff filtern.
+        //Dabei wird kein Datenbankzugriff genötigt
         else {
             let rezeptesammlung = activeClass.childNodes;
 
