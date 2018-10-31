@@ -21,6 +21,8 @@
 
        // Zum öffnen un schließen
        let toggleModal = () =>{
+           let h2 = document.querySelector("#h2");
+           h2.innerHTML = "Rezept hinzuf&uuml;gen";
            if (document.querySelector("#update")!= null) {
               document.querySelector("#update").remove();
               let button = document.createElement("button");
@@ -30,8 +32,6 @@
               let th = document.querySelector("#saveupdate");
               th.appendChild(button);
             }
-              document.getElementById("bpfad").disabled = false;
-              document.getElementById("rname").disabled = false;
               modal.classList.toggle("show-modal");
               fehler = document.querySelector("#fehler")
               fehler.innerHTML ="";
@@ -146,7 +146,7 @@
     let editRecipe = async (source) =>{
         source.stopPropagation();
         let id = source.target.parentNode.parentNode.getAttribute("id");
-        //Nachdem der Button gedrückt wurde in Variablen die neuen Werte speichern
+        //Nachdem der Button gedrückt wurde abgeänderte Daten in Datenbank speichern
         let update = async (source) =>{
              recipe.update({
               id: parseInt(id),
@@ -159,8 +159,6 @@
             // Modal schließen nach update
             let modal = document.querySelector(".modal");
             modal.classList.toggle("show-modal");
-            document.getElementById("bpfad").disabled = false;
-            document.getElementById("rname").disabled = false;
         }
           // holt das th aus dem html code mid id = saveupdate
           let th = document.querySelector("#saveupdate");
@@ -179,19 +177,20 @@
             updateButton.textContent = "speichern";
             th.appendChild(updateButton);
           }
+          // Datenbank holen
           let recipe = new Recipes();
+          // aktuelles Rezept holen
           let aktuelles_Rezept = recipe.getById(parseInt(id));
           aktuelles_Rezept.then(function(result){
               //Input-Felder mit Daten aus der Datenbank befüllen
               document.querySelector("#rname").value = result["recipename"];
-              //Feld ausgrauen
-              document.getElementById("rname").disabled = true;
               document.querySelector("#bpfad").value = result["picture"];
-              //Feld ausgrauen
-              document.getElementById("bpfad").disabled = true;
               document.querySelector("#kat").value = result["categorie"];
               document.querySelector("#kochleitung").value = result["description"];
               document.querySelector("#Zutaten").value = result["ingredients"];
+              let h2 = document.querySelector("#h2");
+              h2.textContent = "Rezept bearbeiten";
+              // Modal öffnen
               let modal = document.querySelector(".modal");
               modal.classList.toggle("show-modal");
           });
