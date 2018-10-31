@@ -252,33 +252,36 @@
     let backtoHome = () =>{
         //zuerst die aktive Klasse raussuchen und ihr wieder die Klassen hidden geben
         let activClass = document.querySelector(".active");
-        activClass.classList.remove("active");
-        activClass.classList.add("hidden");
+        //Wenn wir uns auf der Startseite befinden, tue nichts
+        if(activClass.getAttribute("id") != "Startseite"){
+            activClass.classList.remove("active");
+            activClass.classList.add("hidden");
 
-        //der Dropdown Box auch die Klasse hidden geben
-        let dropdown = document.querySelector("#dropdown");
-        dropdown.classList.add("hidden");
+            //der Dropdown Box auch die Klasse hidden geben
+            let dropdown = document.querySelector("#dropdown");
+            dropdown.classList.add("hidden");
 
-        //der Startseite wieder die Klasse active geben
-        let Startseite = document.querySelector("#Startseite");
-        Startseite.classList.remove("hidden");
-        Startseite.classList.add("active");
+            //der Startseite wieder die Klasse active geben
+            let Startseite = document.querySelector("#Startseite");
+            Startseite.classList.remove("hidden");
+            Startseite.classList.add("active");
 
-        //Wert der Suchleiste zurücksetzen
-        let input = document.querySelector("#Suche");
-        input.value = "";
-        input.setAttribute("placeholder", "Suche...");
+            //Wert der Suchleiste zurücksetzen
+            let input = document.querySelector("#Suche");
+            input.value = "";
+            input.setAttribute("placeholder", "Suche...");
 
-        // Suchleiste sichtbar machen
-        let Suchleiste = document.querySelector("#Suche");
-        Suchleiste.classList.remove("hidden");
+            // Suchleiste sichtbar machen
+            let Suchleiste = document.querySelector("#Suche");
+            Suchleiste.classList.remove("hidden");
 
-        //Hinzufügen-Button sichtbar machen
-        let hinzufügen = document.querySelector("#Neu");
-        hinzufügen.classList.remove("hidden");
+            //Hinzufügen-Button sichtbar machen
+            let hinzufügen = document.querySelector("#Neu");
+            hinzufügen.classList.remove("hidden");
 
-        // Die Seite von der aus Home gedrückt wird, wird gecleared
-        activClass.innerHTML ="";
+            // Die Seite von der aus Home gedrückt wird, wird gecleared
+            activClass.innerHTML ="";
+        }
     }
 
 
