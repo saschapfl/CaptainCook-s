@@ -17,7 +17,7 @@ main {
         background-image: url("Hintergrund.jpg");
         background-repeat:no-repeat;
         background-size: cover;
-        background-attachment: fixed; 
+        background-attachment: fixed;
         overflow-x: hidden;
     }
 
@@ -48,12 +48,11 @@ main {
         height: 90%;
         margin-top: 2.5%;
         position: absolute;
-        top: 0.8em;
-        filter: grayscale(100%);
+        top: 0.6em;
         transition: 0.5s;
     }
     #Neu:hover{
-        filter: grayscale(0%);
+        transform: rotate(180deg);
         cursor: pointer;
     }
 
@@ -83,7 +82,8 @@ main {
         display: inherit;
     }
     #Neu_li{
-      width: 41.16px;
+      width: 57.16px;
+      height: 57.16px;
       position: relative;
     }
     #Startseite td {
@@ -223,8 +223,7 @@ main {
     position: relative;
   }
   #Neu{
-    height: 100%;
-    width: 100%;
+    width: 80%;
     position: absolute;
     top: 0;
     transition: 0s;
