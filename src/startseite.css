@@ -138,13 +138,10 @@ main {
     border: none;
     cursor: pointer;
     margin-top: 20.5%;
-    float:right;
-    margin-right: 20%;
+
 
 }
-    #drop_li{
-        position: relative;
-    }
+
     .dropbtn:hover, .dropbtn:focus {
         background-color: #2980B9;
     }
@@ -154,15 +151,18 @@ main {
         display: inline-block;
         margin-top: 2.5%;
         margin-right: 20%;
+        margin: auto;
+
     }
 
     .dropdown-content {
         display: none;
         position: absolute;
         background-color: #f1f1f1;
-        min-width: 50%
+        min-width: 50%;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+
     }
 
     .dropdown-content a {
@@ -171,6 +171,8 @@ main {
         text-decoration: none;
         display: block;
         font-size: 70%;
+
+
     }
 
     .dropdown-content a:hover {
