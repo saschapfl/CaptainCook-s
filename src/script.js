@@ -209,6 +209,7 @@
           //Sortieren-Button sichtbar machen
           let dropdown = document.querySelector("#dropdown");
           dropdown.classList.remove("hidden");
+          dropdown.classList.add("active");
 
           //Datenbank initialisieren
           recipes = new Recipes();
@@ -258,6 +259,7 @@
 
             //der Dropdown Box auch die Klasse hidden geben
             let dropdown = document.querySelector("#dropdown");
+            dropdown.classList.remove("active");
             dropdown.classList.add("hidden");
 
 
