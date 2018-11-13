@@ -11,3 +11,11 @@ Die Anwendung CaptainCook soll zur Verwaltung von Rezepten dienen. Es stehen fol
 -Es können eigene Rezepte erstellt, hinzugefügt und gelöscht werden
 
 -Eine Liste von Rezepten kann angezeigt werden
+
+Starten der Applikation:
+
+1. Speichern Sie den Projektordner lokal ab
+
+2. Zum Starten der App gehen Sie in die Projektordner und dann in /src und starten die startseite.html
+
+3. Nun kann das ganze Funktionsspektrum der Applikation genutzt werden 
